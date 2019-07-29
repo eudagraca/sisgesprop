@@ -7,13 +7,15 @@
 @endif
 
 @if (session('success'))
-    <div class="ui green message">
+    <div class="ui success message">
+        <i class="close icon"></i>
         {{session('success')}}
     </div>
 @endif
 
 @if (session('error'))
-    <div class="ui red message">
+    <div class="ui negative message">
+        <i class="close icon"></i>
         {{session('error')}}
     </div>
 @endif

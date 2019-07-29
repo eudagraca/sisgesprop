@@ -11,15 +11,11 @@
         <title>{{ config('app.name', 'Sistema de Gestão de Propinas') }}</title>
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-
         <!-- JQuery -->
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-
-        <!-- Semantic JS -->
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.js"></script>
-        <!-- My Custom JS -->
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/semantic.js') }}"></script>
+        <script src="{{ asset('js/customJS.js') }}"></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -27,6 +23,8 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/semantic.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/customCSS.css') }}" rel="stylesheet">
         <link rel="stylesheet" type="text/css"
             href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css" />
     </head>
@@ -42,6 +40,6 @@
             </div>
         </div>
     </body>
-<script src="{{ asset('js/customJS.js') }}"></script>
+
 
 </html>

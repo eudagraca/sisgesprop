@@ -65,7 +65,7 @@
                         placeholder="Credito" autocomplete="off" required>
                 </div>
             </div>
-            <button type="submit" class="ui yellow button" tabindex="0"><i class="exchange icon"></i>Actualizar</button>
+            <button type="submit" class="ui right labeled yellow icon button" tabindex="0"><i class="exchange icon"></i>Actualizar o curso</button>
         </div>
     </form>
 </div>

@@ -37,7 +37,7 @@
                             <form action="{{ route('cursos.destroy', $curso->id)}}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <button class="negative ui trash button">
+                                <button class="ui left labeled negative ui trash icon button">
                                     <i class="trash icon"></i>
                                     Apagar
                                 </button>

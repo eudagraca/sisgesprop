@@ -58,7 +58,7 @@
                         required>
                 </div>
             </div>
-            <button type="submit" class="ui green button" tabindex="0"><i class="save icon"></i>Registar</button>
+            <button type="submit" class="ui right labeled green icon button" tabindex="0"><i class="save icon"></i>Registar curso</button>
         </div>
     </form>
 

@@ -21,12 +21,14 @@ class EstudanteController extends Controller
      */
     public function index()
     {
-        $restCountries = new RestCountries;
+        $countriesPath = Storage::disk('local')->get('countries.json');
+        $bigArrayCountries = json_decode($countriesPath);
+
 
         $path = Storage::disk('local')->get('nationalities.json');
         $nationalities = json_decode($path, true);
 
-        return view('estudantes.create', array('countries' => $restCountries->all(),
+        return view('estudantes.create', array('bigArrayCountries' => $bigArrayCountries,
             'nationalities' => $nationalities));
     }
 

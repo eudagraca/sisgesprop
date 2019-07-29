@@ -1,0 +1,11 @@
+#contacts {
+    display: none;
+}
+
+#educationData {
+    display: none;
+}
+
+#personalData {
+    display: block;
+}
