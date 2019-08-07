@@ -97,7 +97,7 @@ class CadeiraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
         $cadeiras = Cadeira::find($id);
         $cadeiras->nome       = $request->input('nome');
         $cadeiras->codigo     = $request->input('codigo');
