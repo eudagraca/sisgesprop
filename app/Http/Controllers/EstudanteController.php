@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use NNV\RestCountries;
+use App\Estudante;
+use \Request;
 use \Storage;
+
 class EstudanteController extends Controller
 {
 
@@ -21,15 +22,7 @@ class EstudanteController extends Controller
      */
     public function index()
     {
-        $countriesPath = Storage::disk('local')->get('countries.json');
-        $bigArrayCountries = json_decode($countriesPath);
-
-
-        $path = Storage::disk('local')->get('nationalities.json');
-        $nationalities = json_decode($path, true);
-
-        return view('estudantes.create', array('bigArrayCountries' => $bigArrayCountries,
-            'nationalities' => $nationalities));
+        return view('estudantes.index')->with('estudantes', Estudante::all());
     }
 
     /**
@@ -39,7 +32,14 @@ class EstudanteController extends Controller
      */
     public function create()
     {
-        //
+        $countriesPath = Storage::disk('local')->get('countries.json');
+        $bigArrayCountries = json_decode($countriesPath);
+
+        $path = Storage::disk('local')->get('nationalities.json');
+        $nationalities = json_decode($path, true);
+
+        return view('estudantes.create', array('bigArrayCountries' => $bigArrayCountries,
+            'nationalities' => $nationalities));
     }
 
     /**
@@ -48,9 +48,11 @@ class EstudanteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        Estudante::create(Request::all());
+
+        return redirect('/estudante')->with('success', 'Registou novo estudante');
     }
 
     /**
@@ -72,7 +74,16 @@ class EstudanteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $countriesPath = Storage::disk('local')->get('countries.json');
+        $bigArrayCountries = json_decode($countriesPath);
+
+        $path = Storage::disk('local')->get('nationalities.json');
+        $nationalities = json_decode($path, true);
+
+        $estado_civil = ['solteiro', 'casado', 'outro'];
+
+        return view('estudantes.edit', array('bigArrayCountries' => $bigArrayCountries,
+            'nationalities' => $nationalities, 'estado_civil' => $estado_civil))->with('estudante', Estudante::find($id));
     }
 
     /**
@@ -84,7 +95,10 @@ class EstudanteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Estudante::where('id', $id)
+        ->update(Request::except(['_method','_token']));
+
+        return redirect('/estudante')->with('success', 'Dados do estudante '. Request::input('name').' actualizados');
     }
 
     /**

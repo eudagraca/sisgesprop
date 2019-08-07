@@ -11,7 +11,6 @@
         <title><?php echo e(config('app.name', 'Sistema de Gestão de Propinas')); ?></title>
 
         <!-- Scripts -->
-        <!-- JQuery -->
         <script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
         <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
         <script src="<?php echo e(asset('js/semantic.js')); ?>"></script>

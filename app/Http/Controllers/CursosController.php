@@ -21,7 +21,7 @@ class CursosController extends Controller
      */
     public function index()
     {
-        $cursos = Curso::orderBy('id', 'desc')->paginate(10);
+        $cursos =    Curso::orderBy('nome', 'asc')->get();
         return view('cursos.index')->with('cursos', $cursos);
     }
 
@@ -32,7 +32,6 @@ class CursosController extends Controller
      */
     public function create()
     {
-        //
         return view('cursos.create');
     }
 
@@ -54,16 +53,9 @@ class CursosController extends Controller
             'credito'   => 'required',
         ]);
 
-        $curso = new Curso;
-        $curso->nome = $request->input('nome');
-        $curso->codigo = $request->input('codigo');
-        $curso->grau = $request->input('grau');
-        $curso->preco = $request->input('preco');
-        $curso->duracao = $request->input('duracao');
-        $curso->credito = $request->input('credito');
-        $curso->save();
+        Curso::create($request->all());
 
-        return redirect('/cursos')->with('success', 'Cadastrou o curso de '.$curso->nome);
+        return redirect('/cursos')->with('success', 'Cadastrou o curso de '.$request->input('nome'));
     }
 
     /**
@@ -74,7 +66,7 @@ class CursosController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('cursos.details')->with('curso', Curso::find($id));
     }
 
     /**
@@ -85,7 +77,6 @@ class CursosController extends Controller
      */
     public function edit($id)
     {
-        //
         $curso = Curso::find($id);
         return view('cursos.edit')->with('curso', $curso);
     }
@@ -109,16 +100,10 @@ class CursosController extends Controller
             'credito'   => 'required',
         ]);
 
-        $curso = Curso::find($id);
-        $curso->nome = $request->input('nome');
-        $curso->codigo = $request->input('codigo');
-        $curso->grau = $request->input('grau');
-        $curso->preco = $request->input('preco');
-        $curso->duracao = $request->input('duracao');
-        $curso->credito = $request->input('credito');
-        $curso->save();
+        Curso::where('id', $id)
+        ->update($request->except(['_method','_token']));
 
-        return redirect('/cursos')->with('success', 'Curso '.$curso->nome.' actualizado com sucesso');
+        return redirect('/cursos')->with('success', 'Curso '. $request->input('nome').' actualizado com sucesso');
     }
 
     /**
@@ -129,7 +114,6 @@ class CursosController extends Controller
      */
     public function destroy($id)
     {
-        //
         $nomeCurso = Curso::find($id);
         Curso::destroy($id);
 

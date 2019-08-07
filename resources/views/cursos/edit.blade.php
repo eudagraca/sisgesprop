@@ -6,8 +6,8 @@
 
     <form class="ui form" action="{{route('cursos.update', $curso->id)}}" method="POST">
         @method('PUT')
-        <h3 class="ui dividing header"> <a href="/cursos"><i class="red arrow left icon"></i></a> Actualizar dados do
-            cursos</h3>
+        <h4 class="ui dividing header"> <a href="/cursos"><i class="green long arrow alternate left icon"></i></a> Actualizar dados do
+            cursos</h4>
         <div class="field">
             @csrf
             <div class="three fields">

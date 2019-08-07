@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
 
-    <form class="ui form" action="{{route('cursos.store')}}">
+
+    <form class="ui form" action="{{route('cursos.store')}}" method="POST">
         @csrf
-        <h3 class="ui dividing header"> <a href="/cursos"><i class="red arrow left icon"></i></a> Registar curso
-        </h3>
+        <h4 class="ui dividing header"> <a href="/cursos"><i class="green long arrow alternate left icon"></i></a> Registar curso
+        </h4>
         <div class="field">
             @csrf
             <div class="three fields">
@@ -62,5 +62,4 @@
         </div>
     </form>
 
-</div>
 @endsection

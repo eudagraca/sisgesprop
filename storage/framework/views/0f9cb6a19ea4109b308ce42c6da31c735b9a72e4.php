@@ -6,8 +6,8 @@
 
     <form class="ui form" action="<?php echo e(route('cursos.update', $curso->id)); ?>" method="POST">
         <?php echo method_field('PUT'); ?>
-        <h3 class="ui dividing header"> <a href="/cursos"><i class="red arrow left icon"></i></a> Actualizar dados do
-            cursos</h3>
+        <h4 class="ui dividing header"> <a href="/cursos"><i class="green long arrow alternate left icon"></i></a> Actualizar dados do
+            cursos</h4>
         <div class="field">
             <?php echo csrf_field(); ?>
             <div class="three fields">

@@ -1,12 +1,12 @@
 
 
 <?php $__env->startSection('content'); ?>
-<div class="container">
 
-    <form class="ui form" action="<?php echo e(route('cursos.store')); ?>">
+
+    <form class="ui form" action="<?php echo e(route('cursos.store')); ?>" method="POST">
         <?php echo csrf_field(); ?>
-        <h3 class="ui dividing header"> <a href="/cursos"><i class="red arrow left icon"></i></a> Registar curso
-        </h3>
+        <h4 class="ui dividing header"> <a href="/cursos"><i class="green long arrow alternate left icon"></i></a> Registar curso
+        </h4>
         <div class="field">
             <?php echo csrf_field(); ?>
             <div class="three fields">
@@ -58,10 +58,9 @@
                         required>
                 </div>
             </div>
-            <button type="submit" class="ui right labeled green icon button" tabindex="0"><i class="save icon"></i>Registar</button>
+            <button type="submit" class="ui right labeled green icon button" tabindex="0"><i class="save icon"></i>Registar curso</button>
         </div>
     </form>
 
-</div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/euclidio/Dev/apps/sisgesprop/resources/views/cursos/create.blade.php ENDPATH**/ ?>
