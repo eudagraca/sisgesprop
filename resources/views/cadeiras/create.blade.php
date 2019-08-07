@@ -76,9 +76,9 @@
             <div class="three fields">
                 <div class="field">
 
-                    <label for="numero_creditos">Número de créditos</label>
+                    <label for="creditos">Número de créditos</label>
                     <div class="ui right labeled input">
-                        <input type="number" name="numero_creditos" id="numero_creditos"
+                        <input type="number" name="creditos" id="creditos"
                             placeholder="Número de créditos" autocomplete="off" required>
                         <div class="ui basic label">
                             Créditos
@@ -86,8 +86,8 @@
                     </div>
                 </div>
                 <div class="field">
-                    <label for="ano_de_estudo">Ano</label>
-                    <select name="ano_de_estudo" id="ano_de_estudo" class="ui fluid dropdown">
+                    <label for="ano">Ano</label>
+                    <select name="ano" id="ano" class="ui fluid dropdown">
                         <option value="1">1°</option>
                         <option value="2">2°</option>
                         <option value="3">3°</option>
@@ -95,8 +95,8 @@
                     </select>
                 </div>
                 <div class="field">
-                    <label for="semestre_de_estudo">Semestre</label>
-                    <select name="semestre_de_estudo" id="semestre_de_estudo" class="ui fluid dropdown">
+                    <label for="semestre">Semestre</label>
+                    <select name="semestre" id="semestre" class="ui fluid dropdown">
                         <option value="1">I°</option>
                         <option value="2">II°</option>
                     </select>
@@ -105,42 +105,6 @@
             <button type="submit" class="ui right labeled green icon button" tabindex="0"><i
                     class="save icon"></i>Registar cadeira</button>
         </div>
-
-
-        <div class="ui multiple selection dropdown">
-            <input name="gender" type="hidden" value="0,1">
-            <i class="dropdown icon"></i>
-            <div class="default text">Default</div>
-            <div class="menu">
-                <div class="item" data-value="0">Value</div>
-                <div class="item" data-value="1">Another Value</div>
-            </div>
-        </div>
-        <div class="ui selection dropdown">
-            <input name="gender" type="hidden">
-            <div class="default text">Select a value</div>
-            <i class="dropdown icon"></i>
-            <div class="menu">
-                <div class="item" data-value="0">Value</div>
-                <div class="item" data-value="1">Another Value</div>
-            </div>
-        </div>
-        <div class="ui button">Clear </div>
     </form>
 
-
-    <script defer>
-
-
-    $('.clear.example .button')
-    .on('click', function() {
-    $('.clear.example .ui.dropdown')
-    .dropdown('clear')
-    ;
-    })
-    ;
-
-    </script>
-
-
-@endSection
+@endsection

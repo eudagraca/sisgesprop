@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Curso;
 use Illuminate\Support\Facades\Auth;
+use App\Cadeira;
 
 class CursosController extends Controller
 {
@@ -66,7 +67,17 @@ class CursosController extends Controller
      */
     public function show($id)
     {
-        return view('cursos.details')->with('curso', Curso::find($id));
+        $cadeiras = Cadeira::all();
+        $cadeirasArr = array();
+        foreach ($cadeiras as $cadeira) {
+            $curArr = explode(',', $cadeira->curso);
+            if (in_array($id ,$curArr)) {
+                array_push($cadeirasArr, $cadeira);
+            }
+           
+        }
+        
+        return view('cursos.details', array('cadeiras' => $cadeirasArr))->with('curso', Curso::find($id));
     }
 
     /**

@@ -23,13 +23,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            {{--  <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>  --}}
-        </tr>
+        @foreach ($cadeiras as $cadeira)
+            <tr>
+                <td>{{$cadeira->codigo}}</td>
+                <td>{{$cadeira->nome}}</td>
+                <td>{{$cadeira->creditos}}</td>
+                <td>{{$cadeira->ano}}</td>
+                <td>{{$cadeira->semestre}}</td>
+            </tr>
+        @endforeach
 
     </tbody>
 </table>

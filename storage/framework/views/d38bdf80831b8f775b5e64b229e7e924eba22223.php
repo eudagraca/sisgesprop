@@ -17,9 +17,13 @@
                <li class="nav-item active">
                     <a class="nav-link" href="/cursos">Cursos</span></a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/cadeiras">Cadeiras</span></a>
+                </li>
                <li class="nav-item active">
                     <a class="nav-link" href="<?php echo e(route('estudante.index')); ?>">Estudantes</a>
                 </li>
+               
                <?php endif; ?>
 
             </ul>
