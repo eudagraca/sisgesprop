@@ -16,9 +16,13 @@
                <li class="nav-item active">
                     <a class="nav-link" href="/cursos">Cursos</span></a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/cadeiras">Cadeiras</span></a>
+                </li>
                <li class="nav-item active">
                     <a class="nav-link" href="{{ route('estudante.index') }}">Estudantes</a>
                 </li>
+               
                @endguest
 
             </ul>

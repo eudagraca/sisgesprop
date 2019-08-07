@@ -41,7 +41,7 @@
                             </button>
                         </form>
                     </td>
-                    </td>
+                    
                     @endforeach
             </tbody>
 
@@ -93,16 +93,15 @@
                         @endforeach
                     </select>  --}}
 
-
-
-                    <select id="select" class="fluid" name="select[]" multiple>
-                        <option value="">Select...</option>
-                        <option value="1" selected>Value 1</option>
-                        <option value="2" selected>Value 2</option>
-                        <option value="3">Value 3</option>
-                        <option value="4">Value 4</option>
-                    </select>
-
+                    <div class="">
+                            <label>Selecione os cursos</label>
+                            <select id="cursos" name="cursos[]" multiple class="form-control" >
+                                @foreach ($cursos as $curso)
+                                <option value="{{ $curso->id }}">{{ $curso->nome }}</option>
+                                @endforeach
+                            </select>
+                           </div>
+                 
                 </div>
             </div>
 
@@ -141,4 +140,5 @@
     </form>
 
 </div>
+
 @endsection

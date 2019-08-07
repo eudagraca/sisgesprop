@@ -67,4 +67,12 @@ $(document).ready(function () {
     });
 });
 
-$('#select').dropdown();
+$(document).ready(function(){
+    $('#cursos').multiselect({
+        nonSelectedText: 'Selecione os cursos',
+        enableFiltering: true,
+        enableCaseInsensitiveFiltering: true,
+        buttonWidth:'400px'
+    });    
+});
+        

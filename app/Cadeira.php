@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cadeira extends Model
 {
-    protected $table = 'cadeira';
+    protected $table = 'cadeiras';
     public $primaryKey = 'id';
     protected $fillable = [
         'nome', 'codigo', 'curso', 'creditos', 'ano',
