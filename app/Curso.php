@@ -14,10 +14,4 @@ class Curso extends Model
     ];
     public $timestamps = true;
 
-
-    public function cadeira(){
-
-        return $this->hasMany('App\Cadeiras');
-    }
-
 }

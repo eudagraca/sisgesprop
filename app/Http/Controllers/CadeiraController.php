@@ -23,7 +23,7 @@ class CadeiraController extends Controller
      */
     public function create()
     {
-        //
+        return view('cadeiras.create');
     }
 
     /**

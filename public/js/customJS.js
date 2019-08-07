@@ -67,4 +67,9 @@ $(document).ready(function () {
     });
 });
 
-$('#select').dropdown();
+var $progControl = $(".progControlSelect2").select2({
+    placeholder: "What technologies do you use most of the time" //placeholder
+});
+$(".iOSSelect2").on("click", function () {
+    $progControl.val(["sw", "oc"]).trigger("change");
+});

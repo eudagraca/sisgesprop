@@ -16,7 +16,7 @@ class Cadeira extends Model
 
     public function curso()
     {
-        return $this->belongsTo('App\Curso');
+        return $this->belongsToMany('App\Curso');
     }
 
 }

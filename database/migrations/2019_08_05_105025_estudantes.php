@@ -29,7 +29,7 @@ class Estudantes extends Migration
             $table->string('ocupacao');
             $table->string('email');
             $table->bigInteger('telefone_principal');
-            $table->bigInteger('telefone_alternativo');
+            $table->bigInteger('telefone_alternativo')->nullable();
             $table->string('morada');
             $table->string('morada_localidade');
             $table->string('morada_pais');
