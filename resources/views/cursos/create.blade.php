@@ -58,7 +58,32 @@
                         required>
                 </div>
             </div>
-            <button type="submit" class="ui right labeled green icon button" tabindex="0"><i class="save icon"></i>Registar curso</button>
+
+            <div class="three fields">
+
+                    <div class="field">
+                               <label for="duracao">Preço de cadeira em atraso</label>
+                            <div class="ui right labeled input">
+                                <div class="ui basic label">
+                                    MZN
+                                </div>
+                                <input type="text" name="preco_cadeira_atraso" id="preco_cadeira_atraso" placeholder="Preço" autocomplete="off" required>
+                                <div class="ui basic label">
+                                    .00
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="buttonSub">
+                                &nbsp;
+                            </label>
+                                <button type="submit" id="buttonSub" class="ui right labeled green icon button" tabindex="0"><i class="save icon"></i>Registar curso</button>
+                            </div>
+
+
+            </div>
+            
         </div>
     </form>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Estudante;
 use \Request;
 use \Storage;
+use App\Curso;
 
 class EstudanteController extends Controller
 {
@@ -39,7 +40,7 @@ class EstudanteController extends Controller
         $nationalities = json_decode($path, true);
 
         return view('estudantes.create', array('bigArrayCountries' => $bigArrayCountries,
-            'nationalities' => $nationalities));
+            'nationalities' => $nationalities, 'cursos' => Curso::all()));
     }
 
     /**

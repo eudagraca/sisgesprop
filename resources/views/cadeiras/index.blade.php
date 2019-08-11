@@ -42,6 +42,15 @@
         @endforeach
 
     </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="8">
+                <a href="cadeiras/create" class="ui left floated small positive labeled icon button">
+                    <i class="add icon"></i> Adicionar cadeiras
+                </a>
+            </th>
+        </tr>
+    </tfoot>
 </table>
 
 

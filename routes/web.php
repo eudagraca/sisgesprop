@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::resource('cursos', 'CursosController');
 Route::resource('estudante', 'EstudanteController');
 Route::resource('cadeiras', 'CadeiraController');
+Route::resource('preco', 'PrecoController');
 
 Auth::routes();
 

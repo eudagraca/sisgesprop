@@ -10,14 +10,20 @@ class Curso extends Model
     public $primaryKey = 'id';
     protected $fillable = [
         'nome', 'codigo', 'grau', 'preco', 'duracao',
-        'credito',
+        'credito','preco_cadeira_atraso',
     ];
     public $timestamps = true;
 
 
     public function cadeira(){
 
-        return $this->hasMany('App\Cadeiras');
+        $this->hasMany('App\Cadeiras');
     }
+
+    public function estudante(){
+
+        return $this->hasMany(Estudante::class);
+    }
+
 
 }

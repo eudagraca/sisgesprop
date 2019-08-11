@@ -22,7 +22,8 @@
 
                 @foreach ($estudantes as $estudante)
                 <tr>
-                    <td>{{$estudante->id}}</td>
+                    
+                    <td>{{$estudante->curso->nome}}</td>
                     <td>{{$estudante->name}}</td>
                     <td>{{$estudante->last_name}}</td>
                     <td>{{$estudante->email}}</td>
