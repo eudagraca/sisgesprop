@@ -18,6 +18,7 @@ class CriandoTabelaCadeira extends Migration
             $table->string('nome');
             $table->string('codigo');
             $table->integer('creditos');
+            $table->string('curso');
             $table->string('ano', 2);
             $table->string('semestre', 2);
             $table->timestamps();

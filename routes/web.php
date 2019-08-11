@@ -9,17 +9,15 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return redirect('login');
 });
 
-
 Route::resource('cursos', 'CursosController');
 Route::resource('estudante', 'EstudanteController');
-Route::resource('cadeira', 'CadeiraController');
-
+Route::resource('cadeiras', 'CadeiraController');
 
 Auth::routes();
 

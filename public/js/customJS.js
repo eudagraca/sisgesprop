@@ -3,7 +3,7 @@ $('.message .close')
         $(this)
             .closest('.message')
             .transition('fade');
-        });
+    });
 
 $(document).ready(function () {
     var ct = 0;
@@ -67,21 +67,12 @@ $(document).ready(function () {
     });
 });
 
-<<<<<<< HEAD
-var $progControl = $(".progControlSelect2").select2({
-    placeholder: "What technologies do you use most of the time" //placeholder
-});
-$(".iOSSelect2").on("click", function () {
-    $progControl.val(["sw", "oc"]).trigger("change");
-});
-=======
-$(document).ready(function(){
+$(document).ready(function () {
     $('#cursos').multiselect({
         nonSelectedText: 'Selecione os cursos',
         enableFiltering: true,
         enableCaseInsensitiveFiltering: true,
-        buttonWidth:'400px'
-    });    
+        buttonWidth: '250px'
+    });
 });
-        
->>>>>>> a1cf4b540c2cb724234504855be5283cb28f03dc
+

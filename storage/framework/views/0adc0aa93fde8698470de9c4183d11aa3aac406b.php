@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
 
 <div class="row justify-content-center" id="table_form">
@@ -52,7 +50,7 @@
                             <i class="add icon"></i> Adicionar curso
                         </a>
 
-                        <a href="cadeira/create" class="ui right floated small teal labeled icon button">
+                        <a href="cadeiras/create" class="ui right floated small teal labeled icon button">
                             <i class="add icon"></i> Adicionar cadeira
                         </a>
                     </th>
