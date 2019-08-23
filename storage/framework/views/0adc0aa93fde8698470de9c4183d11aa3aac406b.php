@@ -10,6 +10,7 @@
                     <th>Nome</th>
                     <th>Grau</th>
                     <th>Preço</th>
+                    <th>Preço de cadeira em atraso</th>
                     <th>Duração</th>
                     <th>Créditos</th>
                     <th colspan="2">Acção</th>
@@ -22,6 +23,7 @@
                     <td><a href="cursos/<?php echo e($curso->id); ?>" style="color:black"><?php echo e($curso->nome); ?></a></td>
                     <td><?php echo e($curso->grau); ?></td>
                     <td><?php echo e($curso->preco); ?> Meticais</td>
+                    <td><?php echo e($curso->preco_cadeira_atraso); ?> Meticais</td>
                     <td><?php echo e($curso->duracao); ?> Anos</td>
                     <td><?php echo e($curso->credito); ?></td>
                     <td>
@@ -45,7 +47,7 @@
 
             <tfoot>
                 <tr>
-                    <th colspan="8">
+                    <th colspan="9">
                         <a href="cursos/create" class="ui left floated small positive labeled icon button">
                             <i class="add icon"></i> Adicionar curso
                         </a>

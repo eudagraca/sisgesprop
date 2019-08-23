@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Curso;
 use App\Estudante;
-use \Request;
 use \Storage;
+use DataTables;
+use Illuminate\Http\Request;
+
+
 
 class EstudanteController extends Controller
 {
@@ -20,9 +24,27 @@ class EstudanteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('estudantes.index')->with('estudantes', Estudante::all());
+        if ($request->ajax()) {
+            $data = Estudante::latest()->get();
+
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($row) {
+
+                    $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
+
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('estudantes.index');
+
+
+        // return view('estudantes.index')->with('estudantes', Estudante::all());
     }
 
     /**
@@ -39,7 +61,7 @@ class EstudanteController extends Controller
         $nationalities = json_decode($path, true);
 
         return view('estudantes.create', array('bigArrayCountries' => $bigArrayCountries,
-            'nationalities' => $nationalities));
+            'nationalities' => $nationalities, 'cursos' => Curso::all()));
     }
 
     /**
@@ -48,10 +70,9 @@ class EstudanteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        Estudante::create(Request::all());
-
+        Estudante::create($request::all());
         return redirect('/estudante')->with('success', 'Registou novo estudante');
     }
 
@@ -83,7 +104,7 @@ class EstudanteController extends Controller
         $estado_civil = ['solteiro', 'casado', 'outro'];
 
         return view('estudantes.edit', array('bigArrayCountries' => $bigArrayCountries,
-            'nationalities' => $nationalities, 'estado_civil' => $estado_civil))->with('estudante', Estudante::find($id));
+            'nationalities' => $nationalities, 'estado_civil' => $estado_civil, 'cursos' => Curso::all()))->with('estudante', Estudante::find($id));
     }
 
     /**
@@ -96,9 +117,9 @@ class EstudanteController extends Controller
     public function update(Request $request, $id)
     {
         Estudante::where('id', $id)
-        ->update(Request::except(['_method','_token']));
+            ->update(Request::except(['_method', '_token']));
 
-        return redirect('/estudante')->with('success', 'Dados do estudante '. Request::input('name').' actualizados');
+        return redirect('/estudante')->with('success', 'Dados do estudante ' . Request::input('name') . ' actualizados');
     }
 
     /**

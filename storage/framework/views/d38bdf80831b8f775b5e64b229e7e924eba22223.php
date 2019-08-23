@@ -20,10 +20,16 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/cadeiras">Cadeiras</span></a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/preco">Preços</span></a>
+                </li>
                <li class="nav-item active">
                     <a class="nav-link" href="<?php echo e(route('estudante.index')); ?>">Estudantes</a>
                 </li>
-               
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo e(route('matricula.index')); ?>">Matricula</a>
+                </li>
+
                <?php endif; ?>
 
             </ul>

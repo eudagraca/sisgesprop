@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <form class="ui form" action="{{route('cadeiras.store')}}" method="POST">
     @csrf
     <h4 class="ui dividing header"> <a href="/cursos"><i class="green long arrow alternate left icon"></i></a>

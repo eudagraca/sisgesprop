@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Curso;
 use Illuminate\Support\Facades\Auth;
 use App\Cadeira;
-
+use App\Http\Requests\CursoRequest;
 class CursosController extends Controller
 {
 
@@ -42,20 +42,9 @@ class CursosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CursoRequest $request)
     {
-        //Validar os campos
-        $this->validate($request, [
-            'nome'      => 'required|string|max:191',
-            'codigo'    => 'required|string',
-            'grau'      => 'required|string',
-            'preco'     => 'required',
-            'duracao'   => 'required',
-            'credito'   => 'required',
-        ]);
-
         Curso::create($request->all());
-
         return redirect('/cursos')->with('success', 'Cadastrou o curso de '.$request->input('nome'));
     }
 
@@ -74,9 +63,7 @@ class CursosController extends Controller
             if (in_array($id ,$curArr)) {
                 array_push($cadeirasArr, $cadeira);
             }
-           
         }
-        
         return view('cursos.details', array('cadeiras' => $cadeirasArr))->with('curso', Curso::find($id));
     }
 
@@ -99,21 +86,10 @@ class CursosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CursoRequest $request, $id)
     {
-         //Validar os campos
-         $this->validate($request, [
-            'nome'      => 'required|string',
-            'codigo'    => 'required|string',
-            'grau'      => 'required|string',
-            'preco'     => 'required',
-            'duracao'   => 'required',
-            'credito'   => 'required',
-        ]);
-
         Curso::where('id', $id)
         ->update($request->except(['_method','_token']));
-
         return redirect('/cursos')->with('success', 'Curso '. $request->input('nome').' actualizado com sucesso');
     }
 
@@ -127,7 +103,6 @@ class CursosController extends Controller
     {
         $nomeCurso = Curso::find($id);
         Curso::destroy($id);
-
         return redirect('/cursos')->with('success', 'Curso '.$nomeCurso->nome.' removido com sucesso');
     }
 }

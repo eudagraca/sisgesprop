@@ -87,7 +87,6 @@
                         </div>
                     </div>
 
-
                     <div class="required field">
                         <label for="data_validade_bi">Data de validade | Expiry date</label>
                         <div class="ui calendar">
@@ -175,8 +174,6 @@
                             class="chevron right icon"></i></button>
                 </div>
             </div>
-
-
             <!--End first form-->
 
             <!-- Second tab -->
@@ -234,7 +231,6 @@
                             <input type="text" name="codigo_postal" placeholder="Código postal | Postal code"
                                 autocomplete="off">
                         </div>
-
                     </div>
 
                     <div class="float-right field">
@@ -245,15 +241,13 @@
                     </div>
                 </div>
             </div>
-
             <!--End second form-->
-
 
             <!-- Three Tab -->
             <div id="educationData">
                 <div class="ui form">
                     <div class="field">
-                        <div class="two fields">
+                        <div class="three fields">
 
                             <div class="required field">
                                 <label for="qualificacao_previa">Qualificação prévia | Previous educational
@@ -269,6 +263,19 @@
                                 <input type="text" name="instituicao_ensino_medio"
                                     placeholder="nome completo da escola, colegio ou outra | school or other institution name"
                                     autocomplete="off">
+                            </div>
+
+                            <div class="required field">
+                                <label for="curso">Curso</label>
+                                <select name="curso_id" class="ui dropdown">
+                                    <option value="" disabled="disabled" selected="selected">Seleccione o curso | Select
+                                        course
+                                    </option>
+                                    <?php $__currentLoopData = $cursos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $curso): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($curso->id); ?>">
+                                        <?php echo e($curso->nome); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
                             </div>
 
                         </div>
@@ -300,30 +307,26 @@
                                     </option>
 
                                     <?php $__currentLoopData = $bigArrayCountries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $countries): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
                                     <option value="<?php echo e($countries->nome); ?>">
                                         <?php echo e($countries->nome); ?></option>
-
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
                                 </select>
                             </div>
                         </div>
                     </div>
+                    <h4 class="ui horizontal divider header"></h4>
+                </div>
 
-                    <div class="float-right field" style="margin-bottom: 1%;">
-                        <button class="ui left labeled yellow icon button prev2"><i
-                                class="chevron left icon"></i>Anterior</button>
-                        <button class="ui right labeled green icon button submit"><i class="save icon"></i> Registar
-                            estudante</button>
-                    </div>
-
+                <div class="float-right field" style="margin-bottom: 1%;">
+                    <button class="ui left labeled yellow icon button prev2"><i
+                            class="chevron left icon"></i>Anterior</button>
+                    <button class="ui right labeled green icon button submit"><i class="save icon"></i> Registar
+                        estudante</button>
                 </div>
             </div>
-
-        </form>
-
     </div>
+    </form>
+</div>
 
 </div>
 <?php $__env->stopSection(); ?>

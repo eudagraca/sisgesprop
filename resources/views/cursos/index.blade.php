@@ -12,6 +12,7 @@
                     <th>Nome</th>
                     <th>Grau</th>
                     <th>Preço</th>
+                    <th>Preço de cadeira em atraso</th>
                     <th>Duração</th>
                     <th>Créditos</th>
                     <th colspan="2">Acção</th>
@@ -24,6 +25,7 @@
                     <td><a href="cursos/{{$curso->id}}" style="color:black">{{$curso->nome}}</a></td>
                     <td>{{$curso->grau}}</td>
                     <td>{{$curso->preco}} Meticais</td>
+                    <td>{{$curso->preco_cadeira_atraso}} Meticais</td>
                     <td>{{$curso->duracao}} Anos</td>
                     <td>{{$curso->credito}}</td>
                     <td>
@@ -47,7 +49,7 @@
 
             <tfoot>
                 <tr>
-                    <th colspan="8">
+                    <th colspan="9">
                         <a href="cursos/create" class="ui left floated small positive labeled icon button">
                             <i class="add icon"></i> Adicionar curso
                         </a>

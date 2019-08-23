@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cadeira;
 use App\Curso;
 use Illuminate\Http\Request;
+use App\Http\Requests\CadeiraRequest;
 
 class CadeiraController extends Controller
 {
@@ -15,7 +16,6 @@ class CadeiraController extends Controller
      */
     public function index()
     {
-        //
         return view('cadeiras.index')->with('cadeiras', Cadeira::all());
     }
 
@@ -26,7 +26,6 @@ class CadeiraController extends Controller
      */
     public function create()
     {
-        //
         return view('cadeiras.create')->with('cursos', Curso::all());
     }
 
@@ -36,7 +35,7 @@ class CadeiraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CadeiraRequest $request)
     {
         $cadeiras = new Cadeira();
         $cadeiras->nome = $request->input('nome');
@@ -48,17 +47,13 @@ class CadeiraController extends Controller
         // Contador
         $contador = 1;
         foreach ($request->input('curso') as $curso) {
-
             $cadeiras->curso .= $curso;
             if ($contador < count($request->input('curso'))) {
                 $cadeiras->curso .= ', ';
             }
-
             $contador++;
         }
-
         $cadeiras->save();
-
         return redirect('/cadeiras')->with('success', 'Cadastrado com sucesso' . $request->input('nome'));
     }
 
@@ -81,7 +76,6 @@ class CadeiraController extends Controller
      */
     public function edit($id)
     {
-        //
         return view('cadeiras.edit', array('cursos' => Curso::all()))->with('cadeira', Cadeira::find($id));
     }
 
@@ -92,9 +86,8 @@ class CadeiraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CadeiraRequest $request, $id)
     {
-
         $cadeira = Cadeira::find($id);
         $cadeira->nome = $request->input('nome');
         $cadeira->codigo = $request->input('codigo');
@@ -103,10 +96,8 @@ class CadeiraController extends Controller
         $cadeira->semestre = $request->input('semestre');
 
         $cursos = "";
-
         $counter = 1;
         foreach ($request->input('curso') as $curso) {
-
             $cursos .= $curso;
             if ($counter < count($request->input('curso'))) {
                 $cursos .= ',';
@@ -115,7 +106,6 @@ class CadeiraController extends Controller
         }
         $cadeira->curso = $cursos;
         $cadeira->save();
-
         return redirect('/cadeiras')->with('success', 'Alterado com sucesso');
     }
 

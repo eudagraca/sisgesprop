@@ -274,7 +274,7 @@
             <div id="educationData">
                 <div class="ui form">
                     <div class="field">
-                        <div class="two fields">
+                        <div class="three fields">
 
                             <div class="required field">
                                 <label for="qualificacao_previa">Qualificação prévia | Previous educational
@@ -292,6 +292,19 @@
                                     value="{{$estudante->instituicao_ensino_medio}}"
                                     placeholder="nome completo da escola, colegio ou outra | school or other institution name"
                                     autocomplete="off">
+                            </div>
+
+                            <div class="required field">
+                                <label for="curso">Curso</label>
+                                <select name="curso" class="ui dropdown">
+                                    <option value="" disabled="disabled" selected="selected">Seleccione o curso | Select
+                                        course
+                                    </option>
+                                    @foreach ($cursos as $curso)
+                                    <option value="{{ $curso->id}}">
+                                        {{ $curso->nome }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                         </div>

@@ -39,8 +39,8 @@ class Estudantes extends Migration
             $table->date('data_conclusao');
             $table->string('localidade_morada_educacao');
             $table->string('pais_estudo');
-
             $table->timestamps();
+
         });
 
     }
