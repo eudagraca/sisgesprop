@@ -9,3 +9,17 @@
 #personalData {
     display: block;
 }
+
+a#data-table_next {
+    padding: 20px;
+}
+
+input[type="search"] {
+    padding: 6px;
+    border-radius: 5px;
+    border: 2px solid rgb(214, 255, 233);
+}
+
+div#data-table_length {
+    color: green;
+}

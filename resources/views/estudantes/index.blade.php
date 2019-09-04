@@ -5,12 +5,15 @@
 <div class="row justify-content-center">
 
 
-    <table class="table table-bordered data-table">
+    <table class="ui red fixed single line celled table" id="data-table">
         <thead>
             <tr>
-                <th>No</th>
-                <th>Name</th>
+                <th>Nr. do processo</th>
+                <th>Nome</th>
+                <th>Apelido</th>
                 <th>Email</th>
+                <th>Contacto</th>
+                <th>Morada</th>
                 <th width="100px">Action</th>
             </tr>
         </thead>
@@ -23,24 +26,23 @@
 <script defer type="text/javascript">
     $(function () {
 
-    var table = $('.data-table').DataTable({
+    var table = $('#data-table').DataTable({
         processing: true,
         serverSide: true,
         ajax: "{{ route('estudante.index') }}",
         columns: [
-            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
+            {data: 'last_name', name: 'last_name'},
             {data: 'email', name: 'email'},
+            {data: 'telefone_principal', name: 'telefone_principal'},
+            {data: 'morada', name: 'morada'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
 
   });
 </script>
-
-
-
-
 
 
 {{--
