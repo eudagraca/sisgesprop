@@ -15,6 +15,11 @@ class CreateMatriculasTable extends Migration
     {
         Schema::create('matriculas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('estudante_id');
+            $table->integer('curso_id');
+            $table->enum('ano_escolaridade', ['1','2','3','4']);
+            $table->year('ano');
+            $table->decimal('preco');
             $table->timestamps();
         });
     }

@@ -10,5 +10,10 @@ class Matricula extends Model
     protected $table = 'matriculas';
     // chave primaria
     public $primaryKey = 'id';
-    protected $fillable = ['nr_processo'];
+    protected $fillable = [
+        'estudante_id', 'curso_id', 'ano_escolaridade', 'ano', 'preco'];
+
+        public function estudante(){
+            return $this->belongsTo('App\Estudante');
+        }
 }

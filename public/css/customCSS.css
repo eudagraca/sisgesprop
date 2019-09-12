@@ -9,9 +9,19 @@
 #personalData {
     display: block;
 }
+a#data-table_next, a#data-table_previous{
+    padding:10px 20px;
+    box-shadow: 0px .3px .5px rgba(0, 0, 0, .3);
+    border-radius: 3px;
+    cursor: pointer!important;
+}
 
 a#data-table_next {
-    padding: 20px;
+    margin-left: 20px;
+}
+
+a#data-table_previous {
+    margin-right: 20px;
 }
 
 input[type="search"] {
@@ -23,3 +33,10 @@ input[type="search"] {
 div#data-table_length {
     color: green;
 }
+
+/*
+*CSS for paginate numbers
+span .paginate_button {
+    color: red;
+}
+*/

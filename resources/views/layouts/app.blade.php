@@ -33,7 +33,7 @@
         <script src="//code.jquery.com/jquery-1.12.3.js"></script>
         <script src="http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer></script>
         <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
 
     </head>
 

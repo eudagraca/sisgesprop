@@ -19,6 +19,17 @@
         </thead>
         <tbody>
         </tbody>
+        <tfoot>
+            <tr>
+                <th>Nr. do processo</th>
+                <th>Nome</th>
+                <th>Apelido</th>
+                <th>Email</th>
+                <th>Contacto</th>
+                <th>Morada</th>
+                <th width="100px">Action</th>
+            </tr>
+        </tfoot>
     </table>
 </div>
 
@@ -29,6 +40,7 @@
     var table = $('#data-table').DataTable({
         processing: true,
         serverSide: true,
+        "dom": '<"pull-left"f><"pull-bottom"l>tip',
         ajax: "{{ route('estudante.index') }}",
         columns: [
             {data: 'id', name: 'id'},

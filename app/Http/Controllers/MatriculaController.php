@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 use App\Estudante;
+use App\Matricula;
+use App\Curso;
+use App\Preco;
+use DB;
 
 class MatriculaController extends Controller
 {
@@ -14,7 +18,9 @@ class MatriculaController extends Controller
      */
     public function index()
     {
-        return view('matricula.index');
+        
+        $matriculas = Matricula::orderBy('id', 'asc')->get();
+        return view('matricula.index')->with('matriculas', $matriculas);
     }
 
     /**
@@ -24,9 +30,7 @@ class MatriculaController extends Controller
      */
     public function create()
     {
-
-
-        return view('matricula.create')->with('estudantes', Estudante::orderBy('name', 'asc')->get());
+        //return view('matricula.create')->with('estudantes', Estudante::orderBy('name', 'asc')->get());
     }
 
     /**
@@ -37,9 +41,29 @@ class MatriculaController extends Controller
      */
     public function store(Request $request)
     {
-        list($ano, $mes) = explode('-', $request->input('nr_processo'));
+        $ID = $request::input('estudante_id');
+        $ano = $request::input('ano');
 
-        return $ano;
+        $query = Matricula::where('estudante_id', $ID)->where('ano', $ano)->get();
+        
+        if(sizeof($query) == 0){
+            Matricula::create($request::all());
+            return redirect('/matricula')->with('success', 'Estudante matriculado');   
+        }else {
+            return redirect('/matricula')->with('error', 'Estudante já esta matriculado');
+        }
+
+        /*
+        if(!empty($query)){
+          
+            return redirect('/matricula')->with('error', 'Estudante já esta matriculado');
+        }else {
+            Matricula::create($request::all());
+            return redirect('/matricula')->with('success', 'Estudante matriculado');   
+        }
+        */
+       
+   
     }
 
     /**
@@ -85,5 +109,30 @@ class MatriculaController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function matricular($id){
+
+        $precos = Preco::all();
+        $estudante = Estudante::find($id);
+        if (!empty($estudante)) {
+            return view('estudantes.matricular', array('precos' => $precos))->with('estudante', $estudante);
+        }else{
+            return redirect('/estudante');
+        }
+        
+    }
+
+    public function naoMatriculados(){
+        
+        //$matriculas = Estudante::join('matriculas', 'estudantes.id', '!=', 'matriculas.estudante_id')->get();
+        $matriculas = DB::select("SELECT * FROM estudantes left outer join matriculas on matriculas.estudante_id = estudantes.id WHERE matriculas.estudante_id IS NULL");
+
+        //$resultado = array();
+        /*foreach ($matriculas as $matricula) {
+            $resultado.array_push(json_decode($matricula, false));
+        }*/
+        return $matriculas[0];
+        return view('matricula.naoMatriculados')->with('matriculas', $matricula);
     }
 }

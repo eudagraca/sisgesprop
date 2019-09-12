@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Curso;
+use App\Preco;
 use App\Estudante;
 use \Storage;
 use DataTables;
 use Illuminate\Http\Request;
-
-
 
 class EstudanteController extends Controller
 {
@@ -31,7 +30,7 @@ class EstudanteController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="" class="edit btn btn-primary btn-sm">View</a>';
+                    $btn = '<a href="matricular/'.$row->id.'" class="edit btn btn-primary btn-sm">View</a>';
                     return $btn;
                 })
                 ->rawColumns(['action'])
@@ -69,7 +68,7 @@ class EstudanteController extends Controller
      */
     public function store(Request $request)
     {
-        Estudante::create($request::all());
+        Estudante::create($request->all());
         return redirect('/estudante')->with('success', 'Registou novo estudante');
     }
 
@@ -129,4 +128,5 @@ class EstudanteController extends Controller
     {
         //
     }
+
 }

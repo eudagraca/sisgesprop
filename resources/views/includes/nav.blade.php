@@ -14,16 +14,24 @@
                @guest
                @else
                <li class="nav-item active">
-                    <a class="nav-link" href="/cursos">Cursos</span></a>
+                    <a class="nav-link" href="/cursos">Cursos</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/cadeiras">Cadeiras</span></a>
+                    <a class="nav-link" href="/cadeiras">Cadeiras</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/preco">Preços</span></a>
+                    <a class="nav-link" href="/preco">Preços</a>
                 </li>
-               <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('estudante.index') }}">Estudantes</a>
+              
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/estudante" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        Estudantes <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a href="/estudante/create" class="dropdown-item">Cadastrar</a>
+                        <a href="/estudante" class="dropdown-item">Lista</a>
+                    </div>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('matricula.index') }}">Matricula</a>
