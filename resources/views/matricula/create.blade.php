@@ -14,8 +14,8 @@
 
                 <label for="nr_processo">Ano letivo da matricula</label>
                 <div class="ui left labeled input">
-                    <label for="amount" class="ui label icon button"><i class="calendar icon"></i></label>
-                    <input type="month" name="nr_processo" id="nr_processo" placeholder="Preço de matricula"
+                    <label for="year" class="ui label icon button"><i class="calendar icon"></i></label>
+                    <input type="month" name="year" id="nr_processo" placeholder="Preço de matricula"
                         autocomplete="off" required>
 
                 </div>
