@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-
+<h4 class="ui horizontal divider header"><i class="tag icon"></i>Cursos </h4>
 <div class="row justify-content-center" id="table_form">
     <div class="col-md-12 col-sm-12">
 
@@ -19,7 +19,7 @@
             <tbody>
                 <?php $__currentLoopData = $cursos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $curso): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <td><?php echo e($curso->codigo); ?></td>
+                    <td><b><?php echo e($curso->codigo); ?></b></td>
                     <td><a href="cursos/<?php echo e($curso->id); ?>" style="color:black"><?php echo e($curso->nome); ?></a></td>
                     <td><?php echo e($curso->grau); ?></td>
                     <td><?php echo e($curso->preco); ?> Meticais</td>

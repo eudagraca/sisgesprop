@@ -4,26 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Curso;
 use App\Estudante;
-use \Storage;
+use App\Http\Requests\EstudanteRequest;
 use DataTables;
 use Illuminate\Http\Request;
-
-
+use \Storage;
 
 class EstudanteController extends Controller
 {
-
     public function __construct()
     {
-
         $this->middleware('auth');
-
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $request)
     {
         if ($request->ajax()) {
@@ -31,24 +23,16 @@ class EstudanteController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="" class="edit btn btn-primary btn-sm">View</a>';
+                    $btn = '<a href="matricular/' . $row->id . '" class="small ui button">
+                     Matricular</a>';
                     return $btn;
                 })
                 ->rawColumns(['action'])
                 ->make(true);
         }
-
         return view('estudantes.index');
-
-
-        // return view('estudantes.index')->with('estudantes', Estudante::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $countriesPath = Storage::disk('local')->get('countries.json');
@@ -61,35 +45,17 @@ class EstudanteController extends Controller
             'nationalities' => $nationalities, 'cursos' => Curso::all()));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(EstudanteRequest $request)
     {
-        Estudante::create($request::all());
+        Estudante::create($request->all());
         return redirect('/estudante')->with('success', 'Registou novo estudante');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        return view('estudantes.perfil')->with('estudante', Estudante::find($id));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $countriesPath = Storage::disk('local')->get('countries.json');
@@ -104,14 +70,7 @@ class EstudanteController extends Controller
             'nationalities' => $nationalities, 'estado_civil' => $estado_civil, 'cursos' => Curso::all()))->with('estudante', Estudante::find($id));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(EstudanteRequest $request, $id)
     {
         Estudante::where('id', $id)
             ->update(Request::except(['_method', '_token']));
@@ -119,14 +78,9 @@ class EstudanteController extends Controller
         return redirect('/estudante')->with('success', 'Dados do estudante ' . Request::input('name') . ' actualizados');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
     }
+
 }

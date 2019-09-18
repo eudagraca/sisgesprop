@@ -23,10 +23,12 @@ class CadeiraRequest extends FormRequest
      */
     public function rules()
     {
+         $id = $this->route('id');
+
         return [
-            'nome' => 'required|unique:cursos|min:5|max:255|string',
-            'codigo' => 'required|unique:cursos|max:3|string',
-            'curso' => 'required|string',
+            'nome' => 'required|min:5|max:255|string',
+            'codigo' => 'required|min:4|string',
+            // 'curso' => 'required|array',
             'creditos' => 'required|numeric|min:1',
             'ano' => 'required|min:1|string',
             'semestre' => 'required|min:1|string',

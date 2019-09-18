@@ -35,11 +35,11 @@
                     <div class="two fields">
                         <div class="required field">
                             <label for="name">Nomes próprios | Given names</label>
-                            <input type="text" name="name" placeholder="Nomes próprios | Given names">
+                            <input type="text" name="name" value="{{ old('name', '') }}" placeholder="Nomes próprios | Given names">
                         </div>
                         <div class="required field">
                             <label for="last_name">Apelidos | Family names</label>
-                            <input type="text" name="last_name" placeholder="Apelidos | Family names">
+                            <input type="text" value="{{ old('last_name', '') }}" name="last_name" placeholder="Apelidos | Family names">
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                         <div class="required field">
                             <label for="bi">Bilhete de identidade | Personal identification number</label>
                             <input type="text" name="nr_bi"
-                                placeholder="Bilhete de identidade | Personal identification number" autocomplete="off">
+                                placeholder="Bilhete de identidade | Personal identification number" value="{{ old('nr_bi', '') }}" autocomplete="off">
                         </div>
                         <div class="required field">
                             <label for="nacionalidade">Nacionalidade | Nationality</label>
@@ -72,7 +72,7 @@
                 <div class="required three fields">
                     <div class="field">
                         <label for="local_emissao_bi">Local de emissão | Place of issue</label>
-                        <input type="text" name="local_emissao_bi" placeholder="Local de emissão | Place of issue"
+                        <input type="text" value="{{ old('local_emissao_bi', '') }}" name="local_emissao_bi" placeholder="Local de emissão | Place of issue"
                             autocomplete="off">
                     </div>
 
@@ -83,7 +83,7 @@
                         <div class="ui calendar">
                             <div class="ui input left icon">
                                 <i class="calendar alternate outline icon"></i>
-                                <input type="date" name="data_emissao_bi" placeholder="Data de emissão | Issue date"
+                                <input type="date" value="{{ old('data_emissao_bi') }}" name="data_emissao_bi" placeholder="Data de emissão | Issue date"
                                     autocomplete="off">
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                         <div class="ui calendar">
                             <div class="ui input left icon">
                                 <i class="calendar alternate outline icon"></i>
-                                <input type="date" name="data_validade_bi" placeholder="Data de validade | Expiry date"
+                                <input type="date" value="{{ old('data_validade_bi', '') }}" name="data_validade_bi" placeholder="Data de validade | Expiry date"
                                     autocomplete="off">
                             </div>
                         </div>
@@ -109,14 +109,14 @@
                         <div class="ui calendar">
                             <div class="ui input left icon">
                                 <i class="calendar alternate outline icon"></i>
-                                <input type="date" id="date_picker" name="data_nascimento"
+                                <input type="date" id="date_picker" value="{{ old('data_nascimento') }}" name="data_nascimento"
                                     placeholder="Data de nascimento | Date of birth" autocomplete="off">
                             </div>
                         </div>
                     </div>
                     <div class="field">
                         <label for="naturalidade">Naturalidade | Country of of birth</label>
-                        <input type="text" name="naturalidade" placeholder="Naturalidade | Country of of birth">
+                        <input type="text" name="naturalidade" value="{{ old('naturalidade') }}" placeholder="Naturalidade | Country of of birth">
                     </div>
                     <div class="required field">
                         <label for="sexo">Sexo</label>
@@ -166,7 +166,9 @@
 
                     <div class="required field">
                         <label for="ocupacao">Ocupação | Occupation</label>
-                        <input type="text" name="ocupacao" placeholder="Ocupação | Occupation" autocomplete="off">
+                        <input type="text" name="ocupacao" placeholder="Ocupação | Occupation"
+                        value="{{ old('ocupacao') }}"
+                        autocomplete="off">
                     </div>
 
                 </div>
@@ -185,11 +187,14 @@
                         <div class="two fields">
                             <div class="required field">
                                 <label for="email">Endereço electrónico de correio | E-mail</label>
-                                <input type="email" name="email" placeholder="Endereço electrónico de correio | E-mail">
+                                <input type="email" name="email"
+                                value="{{ old('email') }}"
+                                placeholder="Endereço electrónico de correio | E-mail">
                             </div>
                             <div class="required field">
                                 <label for="telefone_principal">Número de telemóvel | Cellphone</label>
                                 <input type="tel" name="telefone_principal"
+                                value="{{ old('telefone_principal') }}"
                                     placeholder="Número de telemóvel | Cellphone">
                             </div>
                         </div>
@@ -199,18 +204,23 @@
                             <div class="required field">
                                 <label for="telefone_alternativo">Telefone alternativo | Alternative phone</label>
                                 <input type="tel" name="telefone_alternativo"
-                                    placeholder="Telefone alternativo | Alternative phone" autocomplete="off">
+                                value="{{ old('telefone_alternativo') }}"
+                                    placeholder="Telefone aternative phone" autocomplete="off">
                             </div>
                             <div class="field">
                                 <label for="morada">Morada | Address</label>
-                                <input type="text" name="morada" placeholder="Morada | Address" autocomplete="off">
+                                <input type="text" name="morada"
+                                value="{{ old('morada') }}"
+                                placeholder="Morada | Address" autocomplete="off">
                             </div>
                         </div>
                     </div>
                     <div class="three fields">
                         <div class="required field">
                             <label for="morada_localidade">Localidade | Place</label>
-                            <input type="text" name="morada_localidade" placeholder="Localidade | Place"
+                            <input type="text"
+                            value="{{ old('morada_localidade') }}"
+                            name="morada_localidade" placeholder="Localidade | Place"
                                 autocomplete="off">
                         </div>
                         <div class="required field">
@@ -231,6 +241,7 @@
                         <div class="field">
                             <label for="codigo_postal">Código postal | Postal code</label>
                             <input type="text" name="codigo_postal" placeholder="Código postal | Postal code"
+                            value="{{ old('codigo_postal') }}"
                                 autocomplete="off">
                         </div>
                     </div>
@@ -255,6 +266,7 @@
                                 <label for="qualificacao_previa">Qualificação prévia | Previous educational
                                     qualification</label>
                                 <input type="text" name="qualificacao_previa"
+                            value="{{ old('qualificacao_previa') }}"
                                     placeholder="12ª classe, licenciatura, ou outra | secondary school or other"
                                     autocomplete="off">
                             </div>
@@ -263,6 +275,7 @@
                                 <label for="instituicao_ensino_medio">Instituição de educação | Educational
                                     institution</label>
                                 <input type="text" name="instituicao_ensino_medio"
+                            value="{{ old('instituicao_ensino_medio') }}"
                                     placeholder="nome completo da escola, colegio ou outra | school or other institution name"
                                     autocomplete="off">
                             </div>
@@ -289,6 +302,7 @@
                                     <div class="ui input left icon">
                                         <i class="calendar alternate outline icon"></i>
                                         <input type="date" id="select_date" name="data_conclusao"
+                                        value="{{ old('data_conclusao') }}"
                                             placeholder="Data de conclusão | Graduation date" autocomplete="off">
                                     </div>
                                 </div>
@@ -297,6 +311,7 @@
                             <div class="required field">
                                 <label for="localidade_morada_educacao">Localidade | Place</label>
                                 <input type="text" name="localidade_morada_educacao"
+                                value="{{ old('localidade_morada_educacao') }}"
                                     placeholder="Lugar e localidade mais próxima / place" autocomplete="off">
                             </div>
                             <div class="required field">

@@ -13,11 +13,16 @@
             <div class="field">
 
                 <label for="nome">Nome da cadeira</label>
-                <input type="text" name="nome" id="nome" placeholder="Nome da cadeira" autocomplete="off" required>
+                <input type="text" name="nome" id="nome"
+                value="{{ old('nome')}}"
+                placeholder="Nome da cadeira"
+                autocomplete="off" required>
             </div>
             <div class="field">
                 <label for="codigo">Codigo da cadeira</label>
-                <input type="text" name="codigo" id="codigo" placeholder="Codigo da cadeira" autocomplete="off"
+                <input type="text" name="codigo" id="codigo"
+                value="{{ old('codigo')}}"
+                placeholder="Codigo da cadeira" autocomplete="off"
                     required>
             </div>
             <div class="field">
@@ -38,6 +43,7 @@
                 <label for="creditos">Número de créditos</label>
                 <div class="ui right labeled input">
                     <input type="number" name="creditos" id="creditos" placeholder="Número de créditos"
+                    value="{{ old('creditos')}}"
                         autocomplete="off" required>
                     <div class="ui basic label">
                         Créditos

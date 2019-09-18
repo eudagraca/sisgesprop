@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMatriculasTable extends Migration
+class CursoCadeira extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateMatriculasTable extends Migration
      */
     public function up()
     {
-        Schema::create('matriculas', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('estudante_id');
+        Schema::create('cadeira_curso', function (Blueprint $table) {
             $table->integer('curso_id');
-            $table->enum('ano_escolaridade', ['1','2','3','4']);
-            $table->year('ano');
-            $table->decimal('preco');
-            $table->timestamps();
+            $table->integer('cadeira_id');
         });
     }
 
@@ -31,6 +26,7 @@ class CreateMatriculasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('matriculas');
+        Schema::dropIfExists('curso_cadeira');
+
     }
 }

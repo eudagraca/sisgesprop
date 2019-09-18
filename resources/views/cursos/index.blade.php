@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<h4 class="ui horizontal divider header"><i class="tag icon"></i>Cursos </h4>
 <div class="row justify-content-center" id="table_form">
     <div class="col-md-12 col-sm-12">
 
@@ -21,7 +21,7 @@
             <tbody>
                 @foreach ($cursos as $curso)
                 <tr>
-                    <td>{{$curso->codigo}}</td>
+                    <td><b>{{$curso->codigo}}</b></td>
                     <td><a href="cursos/{{$curso->id}}" style="color:black">{{$curso->nome}}</a></td>
                     <td>{{$curso->grau}}</td>
                     <td>{{$curso->preco}} Meticais</td>

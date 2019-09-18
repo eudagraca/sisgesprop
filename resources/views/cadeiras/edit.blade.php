@@ -10,8 +10,8 @@
             Registo de Cadeira
         </h4>
         <div class="field">
-           
-            
+
+
             <div class="three fields">
                 <div class="field">
 
@@ -24,7 +24,7 @@
                         required>
                 </div>
                 <div class="field">
-                
+
                     <div class="">
                             <label>Selecione os cursos</label>
                             <select id="cursos" name="curso[]" multiple class="form-control" >
@@ -33,7 +33,7 @@
                                 @endforeach
                             </select>
                            </div>
-                 
+
                 </div>
             </div>
 
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <button type="submit" class="ui right labeled green icon button" tabindex="0"><i
-                    class="save icon"></i>Registar cadeira</button>
+                    class="save icon"></i>Atualizar cadeira</button>
         </div>
     </form>
 

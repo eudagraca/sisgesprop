@@ -10,7 +10,7 @@
 <a class="ui tag label">{{ $curso->grau }}</a>
 <a class="ui red tag label">{{ $curso->preco }} Meticais Mensal</a>
 <a class="ui yellow tag label">{{ $curso->credito }} Créditos</a>
-<h4 class="ui horizontal divider header"><i class="tag icon"></i> Cadeiras do curso de {{ $curso->codigo }}</h4>
+<h4 class="ui horizontal divider header"><i class="tag icon"></i> Cadeiras do curso de {{ $curso->nome }}</h4>
 
 <table class="ui red celled table ">
     <thead>
@@ -28,8 +28,8 @@
                 <td>{{$cadeira->codigo}}</td>
                 <td>{{$cadeira->nome}}</td>
                 <td>{{$cadeira->creditos}}</td>
-                <td>{{$cadeira->ano}}</td>
-                <td>{{$cadeira->semestre}}</td>
+                <td>{{$cadeira->ano.'º'}}</td>
+                <td>{{$cadeira->semestre.'º'}}</td>
             </tr>
         @endforeach
 

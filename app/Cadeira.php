@@ -9,7 +9,7 @@ class Cadeira extends Model
     protected $table = 'cadeiras';
     public $primaryKey = 'id';
     protected $fillable = [
-        'nome', 'codigo', 'curso', 'creditos', 'ano',
+        'nome', 'codigo', 'creditos', 'ano',
         'semestre',
     ];
     public $timestamps = true;

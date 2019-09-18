@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Cadeira;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,9 +15,13 @@ class Curso extends Model
     ];
     public $timestamps = true;
 
-    public function estudantes(){
+    public function estudantes()
+    {
         return $this->hasMany('App\Estudante');
     }
 
-
+    public function cadeiras()
+    {
+        return $this->belongsToMany('App\Cadeira');
+    }
 }

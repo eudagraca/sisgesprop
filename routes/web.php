@@ -21,7 +21,11 @@ Route::resource('cadeiras', 'CadeiraController');
 Route::resource('preco', 'PrecoController');
 Route::resource('matricula', 'MatriculaController');
 
+Route::get('matricular/{id}', 'MatriculaController@matricular');
+Route::get('/naomatriculados', 'MatriculaController@naoMatriculados');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/live_search/action', 'LiveSerachController@action')->name('live_search.action');
