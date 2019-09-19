@@ -76,6 +76,15 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $('#cadeiras').multiselect({
+        nonSelectedText: 'Selecione as cadeiras',
+        enableFiltering: true,
+        enableCaseInsensitiveFiltering: true,
+        buttonWidth: '250px'
+    });
+});
+
 $('.date-own').datepicker({
     minViewMode: 2,
     format: 'yyyy'

@@ -37,6 +37,10 @@
                     <a class="nav-link" href="{{ route('matricula.index') }}">Matricula</a>
                 </li>
 
+                 <li class="nav-item active">
+                    <a class="nav-link" href="{{ route('inscricao.index') }}">Inscrição</a>
+                </li>
+
                @endguest
 
             </ul>

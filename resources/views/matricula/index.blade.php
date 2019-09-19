@@ -31,6 +31,9 @@
                         <a href="estudante/{{$matricula->estudante_id}}" class="small ui button yellow">
                             <i class="eye icon"></i> Detalhes
                         </a>
+                          <a href="inscrever/{{$matricula->id}}" class="small ui button teal">
+                            <i class="eye icon"></i> Inscrever
+                        </a>
                     </td>
                 </tr>
                 @endforeach

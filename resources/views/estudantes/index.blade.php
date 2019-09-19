@@ -31,6 +31,9 @@
         processing: true,
         serverSide: true,
         "dom": '<"pull-left"f><"pull-bottom"l>tip',
+        button: {
+            'pdf'
+        },
         ajax: "{{ route('estudante.index') }}",
         columns: [
             {data: 'id', name: 'id'},

@@ -24,6 +24,9 @@ Route::resource('matricula', 'MatriculaController');
 Route::get('matricular/{id}', 'MatriculaController@matricular');
 Route::get('/naomatriculados', 'MatriculaController@naoMatriculados');
 
+Route::resource('inscricao', 'InscricaoController');
+Route::get('inscrever/{id}', 'InscricaoController@inscrever');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
