@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PrecoRequest;
 use App\Preco;
+use App\Grau;
+
 
 class PrecoController extends Controller
 {
+    public function __construct()
+    {
+       $this->middleware('auth');
+    }
     public function index()
     {
         $precos = Preco::orderBy('id', 'asc')->get();
@@ -15,7 +21,7 @@ class PrecoController extends Controller
 
     public function create()
     {
-        return view('preco.create');
+        return view('preco.create')->with('graus', Grau::all());
     }
 
     public function store(PrecoRequest $request)

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<h4 class="ui horizontal divider header"><i class="list icon"></i>Preços </h4>
 <div class="row justify-content-center" id="table_form">
     <div class="col-md-12 col-sm-12">
 
@@ -35,7 +35,7 @@
                             </button>
                         </form>
                     </td>
-                    
+
                     @endforeach
             </tbody>
 

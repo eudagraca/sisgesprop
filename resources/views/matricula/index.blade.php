@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h4 class="ui horizontal divider header"><i class="tag icon"></i>Estudantes matriculados </h4>
+<h4 class="ui horizontal divider header"><i class="list icon"></i>Estudantes matriculados </h4>
 
 <div class="row justify-content-center" id="table_form">
 

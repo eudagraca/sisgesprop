@@ -29,4 +29,8 @@ class Estudante extends Model
     public function matricula(){
         return $this->hasMany('App\Matricula');
     }
+
+     public function grau(){
+        return $this->hasOne('App\Grau');
+    }
 }

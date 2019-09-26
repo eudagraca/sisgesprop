@@ -116,3 +116,21 @@ ul.multiselect-container.dropdown-menu.show {
 label.profile {
     font-weight: 400 !important;
 }
+
+.ui.dropdown.years{
+      padding: 8px;
+      background: white;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+}
+
+li a label {
+    color: black;
+}
+input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 3px;
+}

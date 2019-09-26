@@ -85,8 +85,21 @@ $(document).ready(function () {
     });
 });
 
-$('.date-own').datepicker({
-    minViewMode: 2,
-    format: 'yyyy'
-});
+// $('.date-own').datepicker({
+//     minViewMode: 2,
+//     format: 'yyyy'
+// });
 
+$(document).ready(function () {
+
+    $('.menu a').click(function () {
+        var tab_id = $(this).attr('data-tab');
+
+        $('.menu a').removeClass('active');
+        $('.segment').removeClass('active');
+
+        $(this).addClass('active');
+        $("#" + tab_id).addClass('active');
+    })
+
+})

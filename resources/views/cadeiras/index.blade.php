@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h4 class="ui horizontal divider header"><i class="tag icon"></i>Cadeiras </h4>
+<h4 class="ui horizontal divider header"><i class="list icon"></i>Cadeiras </h4>
 
 <table class="ui red striped table ">
     <thead>

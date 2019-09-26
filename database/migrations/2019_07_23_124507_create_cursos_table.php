@@ -17,7 +17,7 @@ class CreateCursosTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->string('codigo');
-            $table->string('grau');
+            $table->integer('grau_id');
             $table->double('preco',30);
             $table->integer('duracao');
             $table->integer('credito');

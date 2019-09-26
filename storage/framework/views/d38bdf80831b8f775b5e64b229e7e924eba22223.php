@@ -38,6 +38,10 @@
                     <a class="nav-link" href="<?php echo e(route('matricula.index')); ?>">Matricula</a>
                 </li>
 
+                 <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo e(route('inscricao.index')); ?>">Inscrição</a>
+                </li>
+
                <?php endif; ?>
 
             </ul>

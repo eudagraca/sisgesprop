@@ -4,13 +4,14 @@ namespace App;
 use App\Cadeira;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Grau;
 
 class Curso extends Model
 {
     protected $table = 'cursos';
     public $primaryKey = 'id';
     protected $fillable = [
-        'nome', 'codigo', 'grau', 'preco', 'duracao',
+        'nome', 'codigo', 'grau_id', 'preco', 'duracao',
         'credito','preco_cadeira_atraso',
     ];
     public $timestamps = true;
@@ -23,5 +24,9 @@ class Curso extends Model
     public function cadeiras()
     {
         return $this->belongsToMany('App\Cadeira');
+    }
+
+    public function graus(){
+        return $this->hasOne(Grau::class);
     }
 }

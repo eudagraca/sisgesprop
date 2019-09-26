@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Cadeira;
 use App\Curso;
 use App\Http\Requests\CadeiraRequest;
+use Illuminate\Http\Request;
 
 class CadeiraController extends Controller
 {
@@ -51,5 +52,28 @@ class CadeiraController extends Controller
         Cadeira::destroy($id);
         $cadeira->curso()->sync([]);
         return redirect('/cadeiras')->with('success', 'Cadeira ' . $cadeira->nome . ' removida com sucesso');
+    }
+
+    public function fetch(Request $request)
+    {
+        $select = $request->get('select');
+        $value = $request->get('value');
+        $dependent = $request->get('dependent');
+
+        $data = Cadeira::where($select, $value)->orderBy('nome', 'asc')->get();
+
+        $finalData = "";
+        foreach ($data as $row) {
+
+            $finalData .= '<li>
+                <a tabindex="0">
+                    <label class="checkbox">
+                        <input type="checkbox" value="' . $row->id . '">' . $row->nome .
+                '</label>
+                </a>
+            </li>';
+        }
+
+        echo $finalData;
     }
 }

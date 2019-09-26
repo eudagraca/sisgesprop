@@ -31,4 +31,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/live_search/action', 'LiveSerachController@action')->name('live_search.action');
+Route::get('/live_search/action', 'LiveSearchController@action')->name('live_search.action');
+Route::post('/inscrever', 'CadeiraController@fetch')->name('cadeiras.fetch');

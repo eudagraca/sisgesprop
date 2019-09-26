@@ -90,11 +90,6 @@ class MatriculaController extends Controller
 
             )->get()->toArray();
 
-        // $naoMatriculados = array();
-        // foreach ($matriculas as $key) {
-        //     array_push($naoMatriculados, $key);
-        // }
-        // return $naoMatriculados;
         return view('matricula.naoMatriculados')->with('naoMatriculados', $naoMatriculados);
     }
 }

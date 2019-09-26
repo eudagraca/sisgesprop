@@ -8,6 +8,7 @@ use App\Matricula;
 use App\Estudante;
 use App\Cadeira;
 use App\Curso;
+use App\Preco;
 
 
 class InscricaoController extends Controller
@@ -20,14 +21,14 @@ class InscricaoController extends Controller
     public function index(Request $request)
     {
         //
-        
+
        /* $search = $request->input('search');
         $estudantes = DB::table('estudantes')->where('name', 'like', '%'.$search.'%')->orWhere('last_name', 'like', '%'.$search . '%')->paginate(10);
 
         $estudantesArr = array();
         $ano = date('Y');
         foreach ($estudantes as $estudante) {
-            
+
             $query = Matricula::where('estudante_id', $estudante->id)->where('ano', $ano)->get();
             array_push($estudantesArr, $query);
         }
@@ -39,6 +40,7 @@ class InscricaoController extends Controller
         return view('inscricao.index', ['estudantes' => $estudantes]);*/
 
         //return view('inscricao.index')->with('inscritos', Inscricao::all());
+        return view('inscricao.index')->with('cursos', Curso::all());
     }
 
     /**
@@ -121,10 +123,8 @@ class InscricaoController extends Controller
         }
 
        $cadeiras = DB::select("SELECT cadeira_id FROM cadeira_curso WHERE curso_id = $matricula->curso_id");
-            
         $cadeirasArr = array();
         foreach ($cadeiras as $cadeira) {
-            
            $query = Cadeira::find($cadeira->cadeira_id);
             if($matricula->ano_escolaridade >= $query->ano){
                 array_push($cadeirasArr, $query);
@@ -132,7 +132,7 @@ class InscricaoController extends Controller
         }
 
 
-        return view('inscricao.inscrever',['estudante' => Estudante::find($matricula->estudante_id),'curso' => Curso::find($matricula->curso_id),'matricula' => $matricula])->with('cadeiras', $cadeirasArr);
-        
+        return view('inscricao.inscrever',['estudante' => Estudante::find($matricula->estudante_id),'curso' => Curso::find($matricula->curso_id),'matricula' => $matricula, 'preco'=> Preco::all()])->with('cadeiras', $cadeirasArr);
+
     }
 }

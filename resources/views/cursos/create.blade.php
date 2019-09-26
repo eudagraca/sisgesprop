@@ -22,8 +22,10 @@
                 <div class="field">
                     <label for="nome">Grau académico</label>
                     <select name="grau" id="grau" class="ui fluid dropdown">
-                        <option value="Licenciatura">Licenciatura</option>
-                        <option value="Mestrado">Mestrado</option>
+                        <option value="" disabled selected>Seleccione o grau académico</option>
+                        @foreach ($graus as $grau)
+                        <option value="{{ $grau->id }}">{{ $grau->grau }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>

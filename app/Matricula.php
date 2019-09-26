@@ -13,7 +13,7 @@ class Matricula extends Model
     protected $fillable = [
         'estudante_id', 'curso_id', 'ano_escolaridade', 'ano', 'preco'];
 
-        public function estudante(){
-            return $this->belongsTo('App\Estudante');
-        }
+    public function estudante(){
+        return $this->belongsTo('App\Estudante');
+    }
 }

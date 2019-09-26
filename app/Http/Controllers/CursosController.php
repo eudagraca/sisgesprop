@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Curso;
 use App\Cadeira;
+use App\Grau;
 
 use App\Http\Requests\CursoRequest;
 
@@ -21,7 +22,7 @@ class CursosController extends Controller
 
     public function create()
     {
-        return view('cursos.create');
+        return view('cursos.create')->with('graus', Grau::all());
     }
 
     public function store(CursoRequest $request)
