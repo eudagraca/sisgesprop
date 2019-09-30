@@ -15,12 +15,12 @@ class Grau extends Model
 
      public function precos()
     {
-        return $this->belongsTo('App\Preco');
+        return $this->hasOne('App\Preco');
     }
 
      public function curso()
     {
-        return $this->belongsTo('App\Curso');
+        return $this->hasOne('App\Curso');
     }
 
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Cadeira;
 use App\Curso;
 use App\Http\Requests\CadeiraRequest;
+use App\Matricula;
+use DB;
 use Illuminate\Http\Request;
 
 class CadeiraController extends Controller
@@ -59,21 +61,37 @@ class CadeiraController extends Controller
         $select = $request->get('select');
         $value = $request->get('value');
         $dependent = $request->get('dependent');
+        $matriculaID = $request->get('matriculaID');
 
-        $data = Cadeira::where($select, $value)->orderBy('nome', 'asc')->get();
+        $matricula = Matricula::find($matriculaID);
+        if (empty($matricula)) {
+            return redirect('/matricula');
+        }
+
+        $cadeiras = DB::select("SELECT cadeira_id FROM cadeira_curso WHERE curso_id = $matricula->curso_id");
+        $cadeirasArr = array();
+
+        foreach ($cadeiras as $cadeira) {
+            $query = Cadeira::where('id', '=', $cadeira->cadeira_id)->where($select, '=', $value)->orderBy('nome', 'asc')->get();
+            foreach ($query as $cadeiraEspecifica) {
+                if ($matricula->ano_escolaridade >= $cadeiraEspecifica->ano) {
+                    array_push($cadeirasArr, $cadeiraEspecifica);
+                }
+            }
+        }
 
         $finalData = "";
-        foreach ($data as $row) {
-
-            $finalData .= '<li>
+        $i =0;
+        foreach ($cadeirasArr as $umaCadeira) {
+            // $finalData.= ' <option value="'.$umaCadeira['id'].'">'.$umaCadeira['nome'].'</option>';
+            $finalData .= '<li class="'.$umaCadeira['id'].'" onclick="putClass()">
                 <a tabindex="0">
                     <label class="checkbox">
-                        <input type="checkbox" value="' . $row->id . '">' . $row->nome .
+                        <input type="checkbox" value="' . $umaCadeira['id'] . '">' . $umaCadeira['nome'] .
                 '</label>
                 </a>
             </li>';
         }
-
-        echo $finalData;
+        return $finalData;
     }
 }

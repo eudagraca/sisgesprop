@@ -1,13 +1,13 @@
 @extends('layouts.app')
-
 @section('content')
+@include('includes.msg')
 
 
 <h2 class="ui header">
     <div class="content"><i class="large graduation cap icon"></i>{{ $curso->nome }}</div>
 </h2>
 <a class="ui teal tag label">{{ $curso->duracao }} de duração</a>
-<a class="ui tag label">{{ $curso->grau }}</a>
+<a class="ui tag label">{{ $curso->grau->grau }}</a>
 <a class="ui red tag label">{{ $curso->preco }} Meticais Mensal</a>
 <a class="ui yellow tag label">{{ $curso->credito }} Créditos</a>
 <h4 class="ui horizontal divider header"><i class="tag icon"></i> Cadeiras do curso de {{ $curso->nome }}</h4>

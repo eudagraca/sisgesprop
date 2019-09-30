@@ -41,7 +41,7 @@ class CursosController extends Controller
     public function edit($id)
     {
         $curso = Curso::find($id);
-        return view('cursos.edit')->with('curso', $curso);
+        return view('cursos.edit', ['graus' => Grau::all()])->with('curso', $curso);
     }
 
     public function update(CursoRequest $request, $id)

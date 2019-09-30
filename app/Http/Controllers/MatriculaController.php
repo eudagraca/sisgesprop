@@ -7,6 +7,7 @@ use App\Estudante;
 use App\Http\Requests\MatriculaRequest;
 use App\Matricula;
 use App\Preco;
+use App\Grau;
 use Request;
 
 class MatriculaController extends Controller
@@ -27,6 +28,7 @@ class MatriculaController extends Controller
         $ID = $request->estudante_id;
         $ano = $request->ano;
         $ano = substr($ano, 0, 4);
+        $preco = new PrecoController;
 
         $query = Matricula::where('estudante_id', $ID)->where('ano', $ano)->get();
 
@@ -61,18 +63,19 @@ class MatriculaController extends Controller
 
     public function matricular($id)
     {
-        $precos = Preco::all();
         $estudante = Estudante::find($id);
         $precoMatricula = 0;
+        $precos = Preco::all();
 
         foreach ($precos as $preco) {
-            if ($preco->grau == $estudante->curso->grau) {
+            if ($preco->grau_id == $estudante->grau_id) {
                 $precoMatricula = $preco->preco_matricula;
             }
         }
-
-        if (!empty($estudante)) {
-            return view('estudantes.matricular', ['preco' => $precoMatricula])->with('estudante', $estudante);
+        if($precoMatricula<=0){
+            return redirect('/preco/create');
+        }else if (!empty($estudante)) {
+            return view('estudantes.matricular', ['preco' => $precoMatricula, 'graus' => Grau::all()])->with('estudante', $estudante);
         } else {
             return redirect('/estudante');
         }
@@ -86,7 +89,7 @@ class MatriculaController extends Controller
             'estudantes.id', '=', 'matriculas.estudante_id')
             ->join('cursos', 'cursos.id', '=', 'estudantes.curso_id')
             ->whereNull('matriculas.estudante_id')->select('estudantes.id',
-            'estudantes.name','estudantes.last_name','estudantes.nr_bi','estudantes.email','estudantes.telefone_principal','estudantes.telefone_alternativo','estudantes.local_emissao_bi','estudantes.data_emissao_bi','estudantes.data_validade_bi','estudantes.data_nascimento','estudantes.naturalidade','estudantes.sexo','estudantes.estado_civil','estudantes.ocupacao','estudantes.morada','estudantes.morada_localidade','estudantes.morada_pais','estudantes.qualificacao_previa','estudantes.instituicao_ensino_medio','estudantes.data_conclusao','estudantes.localidade_morada_educacao','estudantes.pais_estudo','estudantes.curso_id','estudantes.codigo_postal', 'cursos.nome', 'cursos.grau','cursos.duracao','cursos.codigo','cursos.preco'
+            'estudantes.name','estudantes.last_name','estudantes.nr_bi','estudantes.email','estudantes.telefone_principal','estudantes.telefone_alternativo','estudantes.local_emissao_bi','estudantes.data_emissao_bi','estudantes.data_validade_bi','estudantes.data_nascimento','estudantes.naturalidade','estudantes.sexo','estudantes.estado_civil','estudantes.ocupacao','estudantes.morada','estudantes.morada_localidade','estudantes.morada_pais','estudantes.qualificacao_previa','estudantes.instituicao_ensino_medio','estudantes.data_conclusao','estudantes.localidade_morada_educacao','estudantes.pais_estudo','estudantes.curso_id','estudantes.codigo_postal', 'cursos.nome', 'cursos.grau_id','cursos.duracao','cursos.codigo','cursos.preco'
 
             )->get()->toArray();
 

@@ -24,9 +24,9 @@ class CursoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nome' => 'required|min:10|max:255|string',
+            'nome' => 'required|min:5|max:255|string',
             'codigo' => 'required|max:3|string',
-            'grau' => 'required|string',
+            'grau_id' => 'required|numeric',
             'preco' => 'required|numeric|min:0',
             'duracao' => 'required|min:1',
             'credito' => 'required|min:1|numeric',

@@ -33,11 +33,13 @@
                     <div class="two fields">
                         <div class="required field">
                             <label for="name">Nomes próprios | Given names</label>
-                            <input type="text" name="name" value="<?php echo e(old('name', '')); ?>" placeholder="Nomes próprios | Given names">
+                            <input type="text" name="name" value="<?php echo e(old('name', '')); ?>"
+                                placeholder="Nomes próprios | Given names">
                         </div>
                         <div class="required field">
                             <label for="last_name">Apelidos | Family names</label>
-                            <input type="text" value="<?php echo e(old('last_name', '')); ?>" name="last_name" placeholder="Apelidos | Family names">
+                            <input type="text" value="<?php echo e(old('last_name', '')); ?>" name="last_name"
+                                placeholder="Apelidos | Family names">
                         </div>
                     </div>
                 </div>
@@ -46,7 +48,8 @@
                         <div class="required field">
                             <label for="bi">Bilhete de identidade | Personal identification number</label>
                             <input type="text" name="nr_bi"
-                                placeholder="Bilhete de identidade | Personal identification number" value="<?php echo e(old('nr_bi', '')); ?>" autocomplete="off">
+                                placeholder="Bilhete de identidade | Personal identification number"
+                                value="<?php echo e(old('nr_bi', '')); ?>" autocomplete="off">
                         </div>
                         <div class="required field">
                             <label for="nacionalidade">Nacionalidade | Nationality</label>
@@ -70,8 +73,8 @@
                 <div class="required three fields">
                     <div class="field">
                         <label for="local_emissao_bi">Local de emissão | Place of issue</label>
-                        <input type="text" value="<?php echo e(old('local_emissao_bi', '')); ?>" name="local_emissao_bi" placeholder="Local de emissão | Place of issue"
-                            autocomplete="off">
+                        <input type="text" value="<?php echo e(old('local_emissao_bi', '')); ?>" name="local_emissao_bi"
+                            placeholder="Local de emissão | Place of issue" autocomplete="off">
                     </div>
 
 
@@ -81,8 +84,8 @@
                         <div class="ui calendar">
                             <div class="ui input left icon">
                                 <i class="calendar alternate outline icon"></i>
-                                <input type="date" value="<?php echo e(old('data_emissao_bi')); ?>" name="data_emissao_bi" placeholder="Data de emissão | Issue date"
-                                    autocomplete="off">
+                                <input type="date" value="<?php echo e(old('data_emissao_bi')); ?>" name="data_emissao_bi"
+                                    placeholder="Data de emissão | Issue date" autocomplete="off">
                             </div>
                         </div>
                     </div>
@@ -92,8 +95,8 @@
                         <div class="ui calendar">
                             <div class="ui input left icon">
                                 <i class="calendar alternate outline icon"></i>
-                                <input type="date" value="<?php echo e(old('data_validade_bi', '')); ?>" name="data_validade_bi" placeholder="Data de validade | Expiry date"
-                                    autocomplete="off">
+                                <input type="date" value="<?php echo e(old('data_validade_bi', '')); ?>" name="data_validade_bi"
+                                    placeholder="Data de validade | Expiry date" autocomplete="off">
                             </div>
                         </div>
                     </div>
@@ -107,14 +110,16 @@
                         <div class="ui calendar">
                             <div class="ui input left icon">
                                 <i class="calendar alternate outline icon"></i>
-                                <input type="date" id="date_picker" value="<?php echo e(old('data_nascimento')); ?>" name="data_nascimento"
-                                    placeholder="Data de nascimento | Date of birth" autocomplete="off">
+                                <input type="date" id="date_picker" value="<?php echo e(old('data_nascimento')); ?>"
+                                    name="data_nascimento" placeholder="Data de nascimento | Date of birth"
+                                    autocomplete="off">
                             </div>
                         </div>
                     </div>
                     <div class="field">
                         <label for="naturalidade">Naturalidade | Country of of birth</label>
-                        <input type="text" name="naturalidade" value="<?php echo e(old('naturalidade')); ?>" placeholder="Naturalidade | Country of of birth">
+                        <input type="text" name="naturalidade" value="<?php echo e(old('naturalidade')); ?>"
+                            placeholder="Naturalidade | Country of of birth">
                     </div>
                     <div class="required field">
                         <label for="sexo">Sexo</label>
@@ -165,8 +170,7 @@
                     <div class="required field">
                         <label for="ocupacao">Ocupação | Occupation</label>
                         <input type="text" name="ocupacao" placeholder="Ocupação | Occupation"
-                        value="<?php echo e(old('ocupacao')); ?>"
-                        autocomplete="off">
+                            value="<?php echo e(old('ocupacao')); ?>" autocomplete="off">
                     </div>
 
                 </div>
@@ -185,14 +189,12 @@
                         <div class="two fields">
                             <div class="required field">
                                 <label for="email">Endereço electrónico de correio | E-mail</label>
-                                <input type="email" name="email"
-                                value="<?php echo e(old('email')); ?>"
-                                placeholder="Endereço electrónico de correio | E-mail">
+                                <input type="email" name="email" value="<?php echo e(old('email')); ?>"
+                                    placeholder="Endereço electrónico de correio | E-mail">
                             </div>
                             <div class="required field">
                                 <label for="telefone_principal">Número de telemóvel | Cellphone</label>
-                                <input type="tel" name="telefone_principal"
-                                value="<?php echo e(old('telefone_principal')); ?>"
+                                <input type="tel" name="telefone_principal" value="<?php echo e(old('telefone_principal')); ?>"
                                     placeholder="Número de telemóvel | Cellphone">
                             </div>
                         </div>
@@ -201,25 +203,21 @@
                         <div class="two fields">
                             <div class="required field">
                                 <label for="telefone_alternativo">Telefone alternativo | Alternative phone</label>
-                                <input type="tel" name="telefone_alternativo"
-                                value="<?php echo e(old('telefone_alternativo')); ?>"
+                                <input type="tel" name="telefone_alternativo" value="<?php echo e(old('telefone_alternativo')); ?>"
                                     placeholder="Telefone aternative phone" autocomplete="off">
                             </div>
                             <div class="field">
                                 <label for="morada">Morada | Address</label>
-                                <input type="text" name="morada"
-                                value="<?php echo e(old('morada')); ?>"
-                                placeholder="Morada | Address" autocomplete="off">
+                                <input type="text" name="morada" value="<?php echo e(old('morada')); ?>"
+                                    placeholder="Morada | Address" autocomplete="off">
                             </div>
                         </div>
                     </div>
                     <div class="three fields">
                         <div class="required field">
                             <label for="morada_localidade">Localidade | Place</label>
-                            <input type="text"
-                            value="<?php echo e(old('morada_localidade')); ?>"
-                            name="morada_localidade" placeholder="Localidade | Place"
-                                autocomplete="off">
+                            <input type="text" value="<?php echo e(old('morada_localidade')); ?>" name="morada_localidade"
+                                placeholder="Localidade | Place" autocomplete="off">
                         </div>
                         <div class="required field">
                             <label for="morada_pais">Pais | Country</label>
@@ -239,8 +237,7 @@
                         <div class="field">
                             <label for="codigo_postal">Código postal | Postal code</label>
                             <input type="text" name="codigo_postal" placeholder="Código postal | Postal code"
-                            value="<?php echo e(old('codigo_postal')); ?>"
-                                autocomplete="off">
+                                value="<?php echo e(old('codigo_postal')); ?>" autocomplete="off">
                         </div>
                     </div>
 
@@ -263,8 +260,7 @@
                             <div class="required field">
                                 <label for="qualificacao_previa">Qualificação prévia | Previous educational
                                     qualification</label>
-                                <input type="text" name="qualificacao_previa"
-                            value="<?php echo e(old('qualificacao_previa')); ?>"
+                                <input type="text" name="qualificacao_previa" value="<?php echo e(old('qualificacao_previa')); ?>"
                                     placeholder="12ª classe, licenciatura, ou outra | secondary school or other"
                                     autocomplete="off">
                             </div>
@@ -273,7 +269,7 @@
                                 <label for="instituicao_ensino_medio">Instituição de educação | Educational
                                     institution</label>
                                 <input type="text" name="instituicao_ensino_medio"
-                            value="<?php echo e(old('instituicao_ensino_medio')); ?>"
+                                    value="<?php echo e(old('instituicao_ensino_medio')); ?>"
                                     placeholder="nome completo da escola, colegio ou outra | school or other institution name"
                                     autocomplete="off">
                             </div>
@@ -300,7 +296,7 @@
                                     <div class="ui input left icon">
                                         <i class="calendar alternate outline icon"></i>
                                         <input type="date" id="select_date" name="data_conclusao"
-                                        value="<?php echo e(old('data_conclusao')); ?>"
+                                            value="<?php echo e(old('data_conclusao')); ?>"
                                             placeholder="Data de conclusão | Graduation date" autocomplete="off">
                                     </div>
                                 </div>
@@ -309,7 +305,7 @@
                             <div class="required field">
                                 <label for="localidade_morada_educacao">Localidade | Place</label>
                                 <input type="text" name="localidade_morada_educacao"
-                                value="<?php echo e(old('localidade_morada_educacao')); ?>"
+                                    value="<?php echo e(old('localidade_morada_educacao')); ?>"
                                     placeholder="Lugar e localidade mais próxima / place" autocomplete="off">
                             </div>
                             <div class="required field">
@@ -328,16 +324,37 @@
                                 </select>
                             </div>
                         </div>
+
+                        <div class="three fields">
+                            <div class="required field">
+                                <label for="grau_id">Grau adacemico a frequentar</label>
+
+                                <select name="grau_id" class="ui dropdown">
+                                    <option value="" disabled="disabled" selected="selected">Seleccione o grau académico
+                                    </option>
+
+                                    <?php $__currentLoopData = $graus; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $grau): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($grau->id); ?>">
+                                        <?php echo e($grau->grau); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="">&nbsp;</label>
+                                <div class="float-right field" style="margin-bottom: 1%;">
+                                    <button class="ui left labeled yellow icon button prev2"><i
+                                            class="chevron left icon"></i>Anterior</button>
+                                    <button class="ui right labeled green icon button submit"><i class="save icon"></i>
+                                        Registar
+                                        estudante</button>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                     <h4 class="ui horizontal divider header"></h4>
                 </div>
 
-                <div class="float-right field" style="margin-bottom: 1%;">
-                    <button class="ui left labeled yellow icon button prev2"><i
-                            class="chevron left icon"></i>Anterior</button>
-                    <button class="ui right labeled green icon button submit"><i class="save icon"></i> Registar
-                        estudante</button>
-                </div>
             </div>
     </div>
     </form>

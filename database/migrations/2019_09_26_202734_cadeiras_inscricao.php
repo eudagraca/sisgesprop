@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePrecosTable extends Migration
+class CadeirasInscricao extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreatePrecosTable extends Migration
      */
     public function up()
     {
-        Schema::create('precos', function (Blueprint $table) {
-            $table->decimal('preco_matricula');
-            $table->decimal('preco_inscricao');
-            $table->integer('grau_id');
-            $table->bigIncrements('id');
-            $table->timestamps();
+        Schema::create('cadeiras_inscricao', function (Blueprint $table) {
+            $table->integer('inscricao_id');
+            $table->integer('cadeira_id');
         });
     }
 
@@ -27,9 +24,8 @@ class CreatePrecosTable extends Migration
      *
      * @return void
      */
-
     public function down()
     {
-        Schema::dropIfExists('precos');
+        Schema::dropIfExists('cadeiras_inscricao');
     }
 }

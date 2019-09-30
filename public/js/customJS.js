@@ -1,9 +1,4 @@
-$('.message .close')
-    .on('click', function () {
-        $(this)
-            .closest('.message')
-            .transition('fade');
-    });
+$('.alert').alert();
 
 $(document).ready(function () {
     var ct = 0;
@@ -101,5 +96,20 @@ $(document).ready(function () {
         $(this).addClass('active');
         $("#" + tab_id).addClass('active');
     })
+});
 
-})
+$(function () {
+    $('.multiselect-ui').multiselect({
+        includeSelectAllOption: true
+    });
+});
+
+
+$(document).ready(function () {
+    $('#multiselect-cadeira').multiselect();
+});
+
+function putClass(id) {
+    $('.dropdown-menu li').addClass('active');
+}
+

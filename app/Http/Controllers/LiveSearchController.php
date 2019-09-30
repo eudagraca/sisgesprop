@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 
-class LiveSerachController extends Controller
+class LiveSearchController extends Controller
 {
     public function index()
     {

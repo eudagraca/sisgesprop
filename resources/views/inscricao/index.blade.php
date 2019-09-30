@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+@include('includes.msg')
 
 <h4 class="ui horizontal divider sub header"><i class="list icon"></i> Estudantes inscritos</h4>
 <div class="ui top attached tabular menu">

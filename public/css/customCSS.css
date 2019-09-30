@@ -9,17 +9,25 @@
 #personalData {
     display: block;
 }
+.dataTables_wrapper .dataTables_paginate .paginate_button.current
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover
+    {
+        color: #fff !important;
+        border: 1px solid #979797;
+        background-color: white;
+}
 
 a#data-table_next,
 a#data-table_previous {
-    padding: 10px 20px;
+    padding: 8px 20px;
     box-shadow: 0px .3px .5px rgba(0, 0, 0, .5);
     cursor: pointer !important;
     margin: 8px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 8px;
     background: #ffffff;
     box-sizing: border-box;
+    font-weight: 600;
 }
 
 a#data-table_next {
@@ -49,8 +57,8 @@ div#data-table_length {
     padding: 10px;
 }
 
-/*
-*CSS for paginate numbers
+/**
+CSS for paginate numbers
 span .paginate_button {
     color: red;
 }
@@ -133,4 +141,19 @@ li a label {
 input[type="checkbox"] {
     margin-right: 10px;
     margin-top: 3px;
+}
+
+/* div#data-table_filter {
+    margin-top: -60px;
+} */
+img.dash {
+    margin-left: 1%;
+    margin-top: -15%;
+}
+.meta.dash {
+    margin-top: -20%;
+}
+
+.description.dash {
+    margin: 3% 5%;
 }

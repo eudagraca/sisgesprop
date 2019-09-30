@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+@include('includes.msg')
 
 <h4 class="ui horizontal divider header"><i class="list icon"></i>Cadeiras </h4>
 

@@ -19,26 +19,42 @@
                         autocomplete="off" required>
 
                 </div>
+                @error('nr_processo')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
             </div>
 
             <div class="field">
 
                 <label>Estudante a matricular</label>
-                <select id="estudante" name="estudante" multiple class="ui dropdown">
+                <select id="estudante" name="estudante_id" multiple class="ui dropdown">
                     @foreach ($estudantes as $estudante)
                     <option value="{{ $estudante->id }}">{{ $estudante->nome }}</option>
                     @endforeach
                 </select>
+                @error('estudante_id')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
 
             </div>
 
 
             <div class="field">
-                <label for="grau">Grau académico</label>
-                <select name="grau" id="grau" class="ui fluid dropdown">
-                    <option value="Licenciatura">Licenciatura</option>
-                    <option value="Mestrado">Mestrado</option>
+                <label for="grau_id">Grau académico</label>
+                <select name="grau_id" id="grau_id" class="ui fluid dropdown">
+                    @foreach ($graus as $grau)
+                    <option value="{{ $grau->id }}">{{ $grau->grau }}</option>
+                    @endforeach
                 </select>
+                @error('grau_id')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
             </div>
 
         </div>

@@ -17,35 +17,52 @@
                             <div class="ui right labeled input">
                                 <label for="amount" class="ui label">MZN</label>
                             <input type="text" name="preco_matricula" id="preco_matricula" value="{{$preco->preco_matricula}}" placeholder="Preço de matricula" autocomplete="off" required>
-        
+
                                 <div class="ui basic label">
                                     .00
                                 </div>
                             </div>
+                            @error('preco_matricula')
+                            <p class="text-danger">
+                                {{ $message }}
+                            </p>
+                            @enderror
                         </div>
-               
+
                     <div class="field">
 
                             <label for="preco_inscricao">Preço de inscrição</label>
                             <div class="ui right labeled input">
                                 <label for="amount" class="ui label">MZN</label>
                                 <input type="text" name="preco_inscricao" id="preco_inscricao"  value="{{$preco->preco_inscricao}}" placeholder="Preço de inscrição" autocomplete="off" required>
-        
+
                                 <div class="ui basic label">
                                     .00
                                 </div>
                             </div>
+                            @error('preco_inscricao')
+                            <p class="text-danger">
+                                {{ $message }}
+                            </p>
+                            @enderror
                         </div>
-               
-                
+
+
                 <div class="field">
-                    <label for="grau">Grau académico</label>
-                    <select name="grau" id="grau" class="ui fluid dropdown">
-                        <option value="Licenciatura">Licenciatura</option>
-                        <option value="Mestrado">Mestrado</option>
+                    <label for="grau_id">Grau académico</label>
+                    <select name="grau_id" id="grau_id" class="ui fluid dropdown">
+                        <option value="" selected disabled>Seleccione o grau académico</option>
+                        @foreach ($graus as $grau)
+                        <option value="{{ $grau->id }}">{{ $grau->grau }}</option>
+                        @endforeach
                     </select>
+                    @error('grau_id')
+                    <p class="text-danger">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
-                
+
             </div>
             <button type="submit" class="ui right labeled green icon button" tabindex="0"><i class="save icon"></i>Alterar preços</button>
         </div>

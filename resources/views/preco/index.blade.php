@@ -1,6 +1,7 @@
 @extends('layouts.app')
-
 @section('content')
+@include('includes.msg')
+
 <h4 class="ui horizontal divider header"><i class="list icon"></i>Preços </h4>
 <div class="row justify-content-center" id="table_form">
     <div class="col-md-12 col-sm-12">
@@ -17,7 +18,7 @@
             <tbody>
                 @foreach ($precos as $preco)
                 <tr>
-                    <td>{{$preco->grau}}</td>
+                    <td>{{$preco->grau->grau}}</td>
                     <td>{{$preco->preco_matricula}} Meticais</td>
                     <td>{{$preco->preco_inscricao}} Meticais</td>
                     <td>

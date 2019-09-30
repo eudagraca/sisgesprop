@@ -15,21 +15,19 @@ Route::get('/', function () {
     return redirect('login');
 });
 
+Auth::routes();
 Route::resource('cursos', 'CursosController');
 Route::resource('estudante', 'EstudanteController');
 Route::resource('cadeiras', 'CadeiraController');
 Route::resource('preco', 'PrecoController');
 Route::resource('matricula', 'MatriculaController');
+Route::resource('inscricao', 'InscricaoController');
 
+Route::get('inscrever/{id}', 'InscricaoController@inscrever');
 Route::get('matricular/{id}', 'MatriculaController@matricular');
 Route::get('/naomatriculados', 'MatriculaController@naoMatriculados');
-
-Route::resource('inscricao', 'InscricaoController');
-Route::get('inscrever/{id}', 'InscricaoController@inscrever');
-
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/live_search/action', 'LiveSearchController@action')->name('live_search.action');
-Route::post('/inscrever', 'CadeiraController@fetch')->name('cadeiras.fetch');
+Route::get('/cursospdf', 'ReportController@cursosPdf')->name('report.cursosPdf');
+
+Route::post('/data', 'CadeiraController@fetch')->name('cadeiras.fetch');

@@ -2,67 +2,26 @@
 <div class="container">
 
     <div class="ui four cards">
-        <a href="/cadeiras" class="card">
-            <div class="image">
-                <img src="https://image.flaticon.com/icons/svg/167/167708.svg">
-            </div>
-            <div class="extra">Cadeiras: <div class="ui star rating" data-rating="4">
-                    24
+        <div class="ui raised link card">
+            <div class="content">
+                <div class="image">
+                   <img class="dash" height="5%" width="50%"
+                        src="/storage/images/books.svg">
+                </div>
+                <div class="meta dash right floated">
+                    <p>Estudantes</p>
+                    <p>25</p>
+
                 </div>
             </div>
-            <div class="ui vertical animated button blue" tabindex="0">
-                <div class="hidden content">Visualizar</div>
-                <div class="visible content">
-                    <i class="eye icon"></i>
-                </div>
+            <div class="description dash">
+                <p>Muitas pessoas também têm seus próprios barômetros para o que faz um cão bonito.</p>
             </div>
-        </a>
-        <a href="/cursos" class="card">
-            <div class="image">
-                <img src="https://image.flaticon.com/icons/svg/2103/2103423.svg">
-            </div>
-            <div class="extra">Cursos: <div class="ui star rating" data-rating="4">
-                    24
-                </div>
-            </div>
-            <div class="ui vertical animated button orange" tabindex="0">
-                <div class="hidden content">Visualizar</div>
-                <div class="visible content">
-                    <i class="eye icon"></i>
-                </div>
-            </div>
-        </i>
-        <a href="/estudante" class="card">
-            <div class="image">
-                <img src="https://image.flaticon.com/icons/svg/327/327130.svg">
-            </div>
-            <div class="extra">Estudantes: <div class="ui star rating" data-rating="4">
-                    24
-                </div>
-            </div>
-            <div class="ui vertical animated button positive" tabindex="0">
-                <div class="hidden content">Visualizar</div>
-                <div class="visible content">
-                    <i class="eye icon"></i>
-                </div>
-            </div>
-        </a>
-        <a class="card">
-            <div class="image">
-                <img src="https://image.flaticon.com/icons/svg/1692/1692630.svg">
-            </div>
-            <div class="extra">Preços: <div class="ui star rating" data-rating="4">
-                    24
-                </div>
-            </div>
-            <div class="ui vertical animated button yellow" tabindex="0">
-                <div class="hidden content">Visualizar</div>
-                <div class="visible content">
-                    <i class="eye icon"></i>
-                </div>
-            </div>
-        </a>
-    </a>
-</a>
+        </div>
+
+    </div>
+</div>
+
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/euclidio/Dev/apps/sisgesprop/resources/views/home.blade.php ENDPATH**/ ?>

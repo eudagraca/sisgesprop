@@ -19,4 +19,9 @@ class Cadeira extends Model
         return $this->belongsToMany('App\Curso');
     }
 
+    public function inscricao()
+    {
+        return $this->hasMany('App\Inscricao');
+    }
+
 }

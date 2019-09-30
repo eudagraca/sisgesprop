@@ -42,5 +42,15 @@ class CadeiraSeeder extends Seeder
             'updated_at' => date("Y-m-d H:i:s"),
         ]);
 
+        Cadeira::create([
+            'nome' => 'Programação I',
+            'codigo' => 'EET006',
+            'creditos' => 6,
+            'ano' => 2,
+            'semestre' => 1,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+
     }
 }

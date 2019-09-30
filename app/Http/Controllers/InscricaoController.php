@@ -9,6 +9,7 @@ use App\Estudante;
 use App\Cadeira;
 use App\Curso;
 use App\Preco;
+use App\Inscricao;
 
 
 class InscricaoController extends Controller
@@ -61,7 +62,21 @@ class InscricaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ID =$request->input('estudante_id');
+        $semestre =$request->input('semestre');
+        $ano = $request->input('ano');
+
+        $query = Inscricao::where('estudante_id','=', $ID)->where('ano','=', $ano)
+        ->where('semestre','=', $semestre)->get();
+        return "HI ". $request->get('cadeiras');
+        // if(sizeof($query)==0){
+        //     $inscricao = Inscricao::create($request->all());
+        //     $inscricao->cadeiras()->attach($request->get('cadeiras'));
+        //     return redirect('/inscricao');
+        // }else{
+        //     //Ja está inscrito no semestre e ano
+        //     return "Allreally subscribed";
+        // }
     }
 
     /**
@@ -118,21 +133,22 @@ class InscricaoController extends Controller
     public function inscrever($id){
 
         $matricula = Matricula::find($id);
+        $precoDaInscricao = 0;
         if(empty($matricula)){
             return redirect('/matricula');
         }
 
        $cadeiras = DB::select("SELECT cadeira_id FROM cadeira_curso WHERE curso_id = $matricula->curso_id");
-        $cadeirasArr = array();
-        foreach ($cadeiras as $cadeira) {
-           $query = Cadeira::find($cadeira->cadeira_id);
-            if($matricula->ano_escolaridade >= $query->ano){
-                array_push($cadeirasArr, $query);
+       $estudante = Estudante::find($matricula->estudante_id);
+       $precos = Preco::all();
+       foreach ($precos as $preco) {
+            if ($preco->grau_id == $estudante->grau_id) {
+                $precoDaInscricao = $preco->preco_inscricao;
             }
         }
 
 
-        return view('inscricao.inscrever',['estudante' => Estudante::find($matricula->estudante_id),'curso' => Curso::find($matricula->curso_id),'matricula' => $matricula, 'preco'=> Preco::all()])->with('cadeiras', $cadeirasArr);
+        return view('inscricao.inscrever',['estudante' => $estudante,'curso' => Curso::find($matricula->curso_id),'matricula' => $matricula, 'preco'=> $precoDaInscricao ])->with('matriculaID', $id);
 
     }
 }

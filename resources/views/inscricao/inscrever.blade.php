@@ -3,6 +3,7 @@
 @section('content')
 
 <form class="ui form" method="POST" action="{{ route('inscricao.store')}}">
+    @csrf
     <h4 class="ui dividing header"> <a href="/estudante"><i class="green long arrow alternate left icon"></i></a> Lista
         de estudantes
     </h4>
@@ -13,20 +14,35 @@
                 <label for="nome">Nome</label>
                 <input type="hidden" name="estudante_id" id="estudante_id" value="{{ $estudante->id }}">
 
-                <input type="text" name="nome" id="nome" value="{{ $estudante->name }}" disabled>
+                <input type="text" id="nome" value="{{ $estudante->name }}" disabled>
+                @error('estudante_id')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
             </div>
 
 
             <div class="field">
                 <label for="codigo">Curso</label>
                 <input type="hidden" name="curso_id" id="curso_id" value="{{ $estudante->curso->id }}">
-                <input type="text" name="codigo" id="codigo" value="{{ $estudante->curso->nome }}" disabled>
+                <input type="text" id="codigo" value="{{ $estudante->curso->nome }}" disabled>
+                @error('curso_id')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
             </div>
 
             <div class="field">
                 <label for="ano">ano</label>
                 <input type="hidden" name="ano" id="ano" value="{{ $matricula->ano }}">
-                <input type="text" name="ano" id="ano" value="{{  $matricula->ano }}" disabled>
+                <input type="text" id="ano" value="{{  $matricula->ano }}" disabled>
+                @error('ano')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
             </div>
 
         </div>
@@ -35,8 +51,12 @@
                 <label for="ano_escolaridade">Ano de escolaridade</label>
                 <input type="hidden" name="ano_escolaridade" id="ano_escolaridade"
                     value="{{ $matricula->ano_escolaridade }}">
-                <input type="text" name="ano_escolaridade" id="ano_escolaridade"
-                    value="{{  $matricula->ano_escolaridade }}" disabled>
+                <input type="text" id="ano_escolaridade" value="{{  $matricula->ano_escolaridade }}" disabled>
+                @error('ano_escolaridade')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
             </div>
 
             <div class="field">
@@ -46,14 +66,28 @@
                     <option value="1">I semestre</option>
                     <option value="2">II semestre</option>
                 </select>
+                @error('semestre')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
             </div>
 
             <div class="field">
 
                 <label>Selecione as cadeiras</label>
-                <select id="cadeiras" name="cadeiras[]" multiple class="ui dropdown">
+
+                <select id="cadeiras multiselect-cadeira" name="cadeiras[]" class="multiselect-ui form-control"
+                    multiple="multiple">
+
 
                 </select>
+
+                @error('cadeiras')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
 
             </div>
         </div>
@@ -61,8 +95,13 @@
         <div class="three fields">
             <div class="field">
                 <label for="valor_pagar">Valor a pagar</label>
-                <input type="hidden" name="valor_pagar" id="valor_pagar">
-                <input type="text" name="valor_pagar" id="valor_pagar" disabled>
+                <input type="hidden" name="preco" value="{{ $preco }}" id="valor_pagar">
+                <input type="text" value="{{ $preco }}" id="valor_pagar" disabled>
+                @error('valor_pagar')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
             </div>
 
             <div class="field">
@@ -82,8 +121,7 @@
             var value = $(this).val();
             var dependent =$(this).data('dependent');
             var _token = $('input[name="_token"]').val();
-
-            console.log(dependent.toString());
+            var id = <?php echo $matriculaID; ?>;
 
             $.ajaxSetup({
             headers: {
@@ -94,9 +132,8 @@
             $.ajax({
                     url: "{{ route('cadeiras.fetch')}} ",
                     method: "POST",
-                    data: {select: select, value: value, dependent: dependent
+                    data: {select: select, value: value, matriculaID: id, dependent: dependent
                 },
-
                 success: function(result){
                     $('.dropdown-menu').html(result);
                     console.log(result)

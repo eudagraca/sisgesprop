@@ -17,6 +17,11 @@
                 value="{{ old('nome')}}"
                 placeholder="Nome da cadeira"
                 autocomplete="off" required>
+                @error('nome')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
             </div>
             <div class="field">
                 <label for="codigo">Codigo da cadeira</label>
@@ -24,6 +29,11 @@
                 value="{{ old('codigo')}}"
                 placeholder="Codigo da cadeira" autocomplete="off"
                     required>
+                    @error('codigo')
+                    <p class="text-danger">
+                        {{ $message }}
+                    </p>
+                    @enderror
             </div>
             <div class="field">
 
@@ -33,6 +43,12 @@
                         <option value="{{ $curso->id }}">{{ $curso->nome }}</option>
                         @endforeach
                     </select>
+
+                    @error('cursos')
+                    <p class="text-danger">
+                        {{ $message }}
+                    </p>
+                    @enderror
 
             </div>
         </div>
@@ -49,6 +65,11 @@
                         Créditos
                     </div>
                 </div>
+                @error('creditos')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
             </div>
             <div class="field">
                 <label for="ano">Ano</label>
@@ -58,6 +79,11 @@
                     <option value="3">3°</option>
                     <option value="4">4°</option>
                 </select>
+                @error('ano')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
             </div>
             <div class="field">
                 <label for="semestre">Semestre</label>
@@ -65,6 +91,11 @@
                     <option value="1">I°</option>
                     <option value="2">II°</option>
                 </select>
+                @error('semestre')
+                <p class="text-danger">
+                    {{ $message }}
+                </p>
+                @enderror
             </div>
         </div>
         <button type="submit" class="ui right labeled green icon button" tabindex="0"><i class="save icon"></i>Registar

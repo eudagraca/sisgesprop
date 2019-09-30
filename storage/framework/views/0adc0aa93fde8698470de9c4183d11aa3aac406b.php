@@ -1,9 +1,20 @@
 <?php $__env->startSection('content'); ?>
+<?php echo $__env->make('includes.msg', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 <h4 class="ui horizontal divider header"><i class="list icon"></i>Cursos </h4>
 <div class="row justify-content-center" id="table_form">
     <div class="col-md-12 col-sm-12">
 
         <table class="ui red small table">
+            <thead>
+                <tr>
+                    <th colspan="9">
+                        <a href="<?php echo e(route('report.cursosPdf')); ?>" class="ui left floated small teal labeled icon button">
+                            <i class="cloud download icon"></i>Cursos
+                        </a>
+                    </th>
+                </tr>
+            </thead>
             <thead>
                 <tr>
                     <th>Código</th>
@@ -21,7 +32,7 @@
                 <tr>
                     <td><b><?php echo e($curso->codigo); ?></b></td>
                     <td><a href="cursos/<?php echo e($curso->id); ?>" style="color:black"><?php echo e($curso->nome); ?></a></td>
-                    <td><?php echo e(dd($curso->graus)); ?></td>
+                    <td><?php echo e($curso->grau->grau); ?></td>
                     <td><?php echo e($curso->preco); ?> Meticais</td>
                     <td><?php echo e($curso->preco_cadeira_atraso); ?> Meticais</td>
                     <td><?php echo e($curso->duracao); ?> Anos</td>

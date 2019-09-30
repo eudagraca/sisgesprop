@@ -14,6 +14,11 @@
                     <input type="hidden" name="estudante_id" id="estudante_id" value="{{ $estudante->id }}">
 
                     <input type="text" name="nome" id="nome" value="{{ $estudante->name }}" disabled>
+                    @error('nome')
+                    <p class="text-danger">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
 
 
@@ -21,6 +26,11 @@
                     <label for="codigo">Curso</label>
                     <input type="hidden" name="curso_id" id="curso_id"  value="{{ $estudante->curso->id }}">
                     <input type="text" name="codigo" id="codigo"  value="{{ $estudante->curso->nome }}" disabled>
+                    @error('curso_id')
+                    <p class="text-danger">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
                 <div class="field">
                     <label for="nome">Ano de escolaridade</label>
@@ -30,6 +40,11 @@
                         <option value="3">III ano</option>
                         <option value="4">IV ano</option>
                     </select>
+                    @error('ano_escolaridade')
+                    <p class="text-danger">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
             </div>
             <div class="three fields">
@@ -44,6 +59,11 @@
                             .00
                         </div>
                     </div>
+                    @error('preco')
+                    <p class="text-danger">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
 
                 <div class="field">
@@ -56,6 +76,11 @@
                             Anos
                         </div>
                     </div>
+                    @error('ano')
+                    <p class="text-danger">
+                        {{ $message }}
+                    </p>
+                    @enderror
                 </div>
 
                 <div class="field">

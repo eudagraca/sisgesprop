@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Curso;
 use App\Estudante;
+use App\Grau;
 use App\Http\Requests\EstudanteRequest;
 use DataTables;
 use Illuminate\Http\Request;
@@ -42,7 +43,7 @@ class EstudanteController extends Controller
         $nationalities = json_decode($path, true);
 
         return view('estudantes.create', array('bigArrayCountries' => $bigArrayCountries,
-            'nationalities' => $nationalities, 'cursos' => Curso::all()));
+            'nationalities' => $nationalities, 'cursos' => Curso::all(), 'graus' => Grau::all()));
     }
 
     public function store(EstudanteRequest $request)
@@ -67,7 +68,7 @@ class EstudanteController extends Controller
         $estado_civil = ['solteiro', 'casado', 'outro'];
 
         return view('estudantes.edit', array('bigArrayCountries' => $bigArrayCountries,
-            'nationalities' => $nationalities, 'estado_civil' => $estado_civil, 'cursos' => Curso::all()))->with('estudante', Estudante::find($id));
+            'nationalities' => $nationalities, 'estado_civil' => $estado_civil, 'cursos' => Curso::all(), 'graus' => Grau::all()))->with('estudante', Estudante::find($id));
     }
 
     public function update(EstudanteRequest $request, $id)

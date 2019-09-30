@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Matricula extends Model
+class Inscricao extends Model
 {
-     //Nome da tabela
-    protected $table = 'matriculas';
-    // chave primaria
+    protected $table = 'inscricoes';
     public $primaryKey = 'id';
     protected $fillable = [
-        'estudante_id', 'curso_id', 'ano_escolaridade', 'ano', 'preco'];
+        'curso_id', 'estudante_id', 'semestre', 'ano_escolaridade', 'preco', 'ano'
+    ];
+    public $timestamps = true;
 
     public function estudante(){
         return $this->belongsTo('App\Estudante');
@@ -19,5 +19,9 @@ class Matricula extends Model
 
     public function curso(){
         return $this->belongsTo('App\Curso');
+    }
+
+    public function cadeiras(){
+        return $this->belongsTo('App\Cadeira');
     }
 }

@@ -26,7 +26,17 @@ class Curso extends Model
         return $this->belongsToMany('App\Cadeira');
     }
 
-    public function graus(){
-        return $this->hasOne(Grau::class);
+    public function grau(){
+        return $this->belongsTo('App\Grau');
+    }
+
+    public function inscricoes()
+    {
+        return $this->hasMany('App\Inscricao');
+    }
+
+    public function maltriculas()
+    {
+        return $this->hasMany('App\Matricula');
     }
 }

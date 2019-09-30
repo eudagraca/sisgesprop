@@ -24,9 +24,9 @@ class PrecoRequest extends FormRequest
     public function rules()
     {
         return [
-              'preco_matricula' => 'required|numeric|min:0',
+            'preco_matricula' => 'required|numeric|min:0',
             'preco_inscricao' => 'required|numeric|min:0',
-            'grau'            => 'required|string|min:3',
+            'grau_id' => 'required|integer',
         ];
     }
 }

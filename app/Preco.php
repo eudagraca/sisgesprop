@@ -15,6 +15,6 @@ class Preco extends Model
 
      public function grau()
     {
-        return $this->hasOne('App\Grau');
+        return $this->belongsTo('App\Grau');
     }
 }

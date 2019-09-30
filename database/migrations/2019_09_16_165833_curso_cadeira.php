@@ -26,7 +26,7 @@ class CursoCadeira extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('curso_cadeira');
+        Schema::dropIfExists('cadeira_curso');
 
     }
 }

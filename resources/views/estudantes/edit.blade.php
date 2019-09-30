@@ -350,17 +350,36 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="float-right field" style="margin-bottom: 1%;">
-                        <button class="ui left labeled yellow icon button prev2"><i
-                                class="chevron left icon"></i>Anterior</button>
-                        <button class="ui right labeled green icon button submit"><i class="save icon"></i> Atualizar
-                            dados do
-                            estudante</button>
+                        <div class="three fields">
+                            <div class="required field">
+                                <label for="grau_id">Grau adacemico a frequentar</label>
+
+                                <select name="grau_id" class="ui dropdown">
+                                    <option value="" disabled="disabled" selected="selected">Seleccione o grau académico
+                                    </option>
+
+                                    @foreach ($graus as $grau)
+                                    <option value="{{ $grau->id}}">
+                                        {{ $grau->grau }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="">&nbsp;</label>
+                                <div class="float-right field" style="margin-bottom: 1%;">
+
+                                    <button class="ui left labeled yellow icon button prev2"><i class="chevron left icon"></i>Anterior</button>
+                                    <button class="ui right labeled green icon button submit"><i class="save icon"></i>
+                                        Atualizar
+                                        dados do
+                                        estudante</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
         </form>
     </div>
 </div>
