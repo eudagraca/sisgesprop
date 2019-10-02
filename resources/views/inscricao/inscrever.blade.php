@@ -80,7 +80,6 @@
                 <select id="cadeiras multiselect-cadeira" name="cadeiras[]" class="multiselect-ui form-control"
                     multiple="multiple">
 
-
                 </select>
 
                 @error('cadeiras')
@@ -135,7 +134,7 @@
                     data: {select: select, value: value, matriculaID: id, dependent: dependent
                 },
                 success: function(result){
-                    $('.dropdown-menu').html(result);
+                    $('#cadeiras').html(result);
                     console.log(result)
                     }, error: function(result){
                     console.log(result)

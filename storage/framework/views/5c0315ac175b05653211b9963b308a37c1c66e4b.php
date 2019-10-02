@@ -16,7 +16,7 @@
                 <?php if ($errors->has('nome')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('nome'); ?>
-                <p class="ui red message">
+                <p class="text-danger">
                     <?php echo e($message); ?>
 
                 </p>
@@ -31,7 +31,7 @@ endif; ?>
                 <?php if ($errors->has('codigo')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('codigo'); ?>
-                <p class="ui red message">
+                <p class="text-danger">
                     <?php echo e($message); ?>
 
                 </p>
@@ -50,7 +50,7 @@ endif; ?>
                 <?php if ($errors->has('grau')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('grau'); ?>
-                <p class="ui red message">
+                <p class="text-danger">
                     <?php echo e($message); ?>
 
                 </p>
@@ -96,7 +96,7 @@ endif; ?>
                 <?php if ($errors->has('duracao')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('duracao'); ?>
-                <p class="ui red message">
+                <p class="text-danger">
                     <?php echo e($message); ?>
 
                 </p>
@@ -111,7 +111,7 @@ endif; ?>
                 <?php if ($errors->has('credito')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('credito'); ?>
-                <p class="ui red message">
+                <p class="text-danger">
                     <?php echo e($message); ?>
 
                 </p>
@@ -138,7 +138,7 @@ endif; ?>
                 <?php if ($errors->has('preco_cadeira_atraso')) :
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('preco_cadeira_atraso'); ?>
-                <p class="ui red message">
+                <p class="text-danger">
                     <?php echo e($message); ?>
 
                 </p>

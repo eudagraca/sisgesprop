@@ -42,10 +42,61 @@
     <body>
         <div id="app">
             <?php echo $__env->make('includes.nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-            <div class="ui container">
-                <main class="py-4">
-                    <?php echo $__env->yieldContent('content'); ?>
-                </main>
+            <div class="ui grid">
+                <div class="three wide column">
+                    <div class="ui vertical menu">
+                        <div class="item">
+                            <div class="header">Products</div>
+                            <div class="menu">
+                                <a class="item">Enterprise</a>
+                                <a class="item">Consumer</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="header">CMS Solutions</div>
+                            <div class="menu">
+                                <a class="item">Rails</a>
+                                <a class="item">Python</a>
+                                <a class="item">PHP</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="header">Hosting</div>
+                            <div class="menu">
+                                <a class="item">Compartilhado</a>
+                                <a class="item">Dedicado</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="header">Support</div>
+                            <div class="menu">
+                                <a class="item">E-mail Support</a>
+                                <a class="item">FAQs</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="header">Support</div>
+                            <div class="menu">
+                                <a class="item">E-mail Support</a>
+                                <a class="item">FAQs</a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="header">Support</div>
+                            <div class="menu">
+                                <a class="item">E-mail Support</a>
+                                <a class="item">FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="twelve wide column">
+                    <div class="ui container">
+                        <main class="py-4">
+                            <?php echo $__env->yieldContent('content'); ?>
+                        </main>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

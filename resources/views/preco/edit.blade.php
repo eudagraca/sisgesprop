@@ -51,9 +51,14 @@
                 <div class="field">
                     <label for="grau_id">Grau académico</label>
                     <select name="grau_id" id="grau_id" class="ui fluid dropdown">
-                        <option value="" selected disabled>Seleccione o grau académico</option>
                         @foreach ($graus as $grau)
-                        <option value="{{ $grau->id }}">{{ $grau->grau }}</option>
+                        {{ $esseGrau=$preco->grau_id==$grau->id }}
+                        {{ $selecao=$esseGrau?"selected='selected'":"" }}
+
+                        {{ $id = $grau->id }}
+                        <option value="{{ $id }}" {{ $selecao }}>
+                            {{ $grau->grau }}
+                        </option>
                         @endforeach
                     </select>
                     @error('grau_id')

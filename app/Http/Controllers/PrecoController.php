@@ -37,7 +37,7 @@ class PrecoController extends Controller
 
     public function edit($id)
     {
-        return view('preco.edit')->with('preco', Preco::find($id));
+        return view('preco.edit',['graus' => Grau::all()])->with('preco', Preco::find($id));
     }
 
     public function update(PrecoRequest $request, $id)
