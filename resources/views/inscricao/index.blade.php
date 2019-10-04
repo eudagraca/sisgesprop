@@ -11,6 +11,8 @@
 @foreach ($cursos as $curso)
 <div id="{{ $curso->codigo }}" class="ui bottom attached tab segment" data-tab="{{ $curso->codigo }}">
 
+    <!-- A ideia aqui é usarmos Ajax, para pgar dinamicamente os estudantes inscritos em cada curso  -->
+
     <select class="ui dropdown years">
         <option value="" disabled selected>Gender</option>
         <option value="1">Male</option>

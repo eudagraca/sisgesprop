@@ -21,27 +21,9 @@ class InscricaoController extends Controller
      */
     public function index(Request $request)
     {
-        //
+        $inscritos = Inscricao::OrderBy('created_at', 'asc')->paginate(10);
 
-       /* $search = $request->input('search');
-        $estudantes = DB::table('estudantes')->where('name', 'like', '%'.$search.'%')->orWhere('last_name', 'like', '%'.$search . '%')->paginate(10);
-
-        $estudantesArr = array();
-        $ano = date('Y');
-        foreach ($estudantes as $estudante) {
-
-            $query = Matricula::where('estudante_id', $estudante->id)->where('ano', $ano)->get();
-            array_push($estudantesArr, $query);
-        }
-
-        return $estudantesArr;
-        if(sizeof($estudantes) == 0){
-            return redirect('/inscricao')->with('error', 'Nenhum dado encontrado');
-        }else
-        return view('inscricao.index', ['estudantes' => $estudantes]);*/
-
-        //return view('inscricao.index')->with('inscritos', Inscricao::all());
-        return view('inscricao.index')->with('cursos', Curso::all());
+        return view('inscricao.index', ['cursos' => Curso::all()])->with('inscritos', $inscritos);
     }
 
     /**
@@ -66,17 +48,19 @@ class InscricaoController extends Controller
         $semestre =$request->input('semestre');
         $ano = $request->input('ano');
 
+        $estudante = Estudante::find($ID);
+
         $query = Inscricao::where('estudante_id','=', $ID)->where('ano','=', $ano)
         ->where('semestre','=', $semestre)->get();
-        return "HI ". $request->get('cadeiras');
-        // if(sizeof($query)==0){
-        //     $inscricao = Inscricao::create($request->all());
-        //     $inscricao->cadeiras()->attach($request->get('cadeiras'));
-        //     return redirect('/inscricao');
-        // }else{
-        //     //Ja está inscrito no semestre e ano
-        //     return "Allreally subscribed";
-        // }
+        if(sizeof($query)==0){
+            $inscricao = Inscricao::create($request->all());
+            $inscricao->cadeiras()->attach($request->get('cadeiras'));
+            return redirect('/inscricao')->with('success', 'O estudante '. $estudante->name.' acaba de ser inscrito no semestre');;
+        }else{
+            //Ja está inscrito no semestre e ano
+            return redirect('/inscricao')->with('error', 'O estudante '. $estudante->name.' já está inscrito no semestre');
+
+        }
     }
 
     /**

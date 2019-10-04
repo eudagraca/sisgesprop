@@ -77,8 +77,8 @@
 
                 <label>Selecione as cadeiras</label>
 
-                <select id="cadeiras multiselect-cadeira" name="cadeiras[]" class="multiselect-ui form-control"
-                    multiple="multiple">
+                <select id="cadeiras" name="cadeiras[]" class="form-control"
+                    multiple>
 
                 </select>
 
@@ -114,13 +114,14 @@
 
 <script>
     $(document).ready(function(){
-    $('.dynamic').change(function(){
+    $('#semestre').change(function(){
         if($(this).val() != ''){
             var select =$(this).attr("id");
             var value = $(this).val();
-            var dependent =$(this).data('dependent');
             var _token = $('input[name="_token"]').val();
             var id = <?php echo $matriculaID; ?>;
+            $('#cadeiras').html('');
+            $('#cadeiras').multiselect('rebuild');
 
             $.ajaxSetup({
             headers: {
@@ -131,11 +132,11 @@
             $.ajax({
                     url: "{{ route('cadeiras.fetch')}} ",
                     method: "POST",
-                    data: {select: select, value: value, matriculaID: id, dependent: dependent
+                    data: {select: select, value: value, matriculaID: id
                 },
                 success: function(result){
                     $('#cadeiras').html(result);
-                    console.log(result)
+                    $('#cadeiras').multiselect('rebuild');
                     }, error: function(result){
                     console.log(result)
                 }

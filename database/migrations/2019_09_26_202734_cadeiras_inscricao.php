@@ -13,7 +13,7 @@ class CadeirasInscricao extends Migration
      */
     public function up()
     {
-        Schema::create('cadeiras_inscricao', function (Blueprint $table) {
+        Schema::create('cadeira_inscricao', function (Blueprint $table) {
             $table->integer('inscricao_id');
             $table->integer('cadeira_id');
         });

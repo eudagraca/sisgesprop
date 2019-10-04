@@ -20,7 +20,7 @@ class MatriculaController extends Controller
 
     public function create()
     {
-        //return view('matricula.create')->with('estudantes', Estudante::orderBy('name', 'asc')->get());
+        //
     }
 
     public function store(MatriculaRequest $request)

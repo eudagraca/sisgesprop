@@ -60,7 +60,6 @@ class CadeiraController extends Controller
     {
         $select = $request->get('select');
         $value = $request->get('value');
-        $dependent = $request->get('dependent');
         $matriculaID = $request->get('matriculaID');
 
         $matricula = Matricula::find($matriculaID);
@@ -83,15 +82,8 @@ class CadeiraController extends Controller
         $finalData = "";
         $i =0;
         foreach ($cadeirasArr as $umaCadeira) {
-            // $finalData.= ' <option value="'.$umaCadeira['id'].'">'.$umaCadeira['nome'].'</option>';
-            $finalData .= '<li class="'.$umaCadeira['id'].'" onclick="putClass()">
-                <a tabindex="0">
-                    <label class="checkbox">
-                        <input type="checkbox" value="' . $umaCadeira['id'] . '">' . $umaCadeira['nome'] .
-                '</label>
-                </a>
-            </li>';
+            $finalData.= '<option value="'.$umaCadeira['id'].'">'.$umaCadeira['nome'].'</option>';
         }
-        return $finalData;
+        echo $finalData;
     }
 }

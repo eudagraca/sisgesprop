@@ -22,6 +22,6 @@ class Inscricao extends Model
     }
 
     public function cadeiras(){
-        return $this->belongsTo('App\Cadeira');
+        return $this->belongsToMany('App\Cadeira');
     }
 }
