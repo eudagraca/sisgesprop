@@ -154,6 +154,10 @@ img.dash {
 .description.dash {
     margin: 3% 5%;
 }
+.dash.image {
+    margin-top: -5%;
+    margin-bottom: -60%;
+}
 
 main.py-4 {
     margin: 0 !important;
