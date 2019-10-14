@@ -28,11 +28,17 @@
                     <td>{{$matricula->ano_escolaridade}}</td>
                     <td>{{$matricula->ano}}</td>
                     <td>
-                        <a href="estudante/{{$matricula->estudante_id}}" class="small ui button yellow">
-                            <i class="eye icon"></i> Detalhes
+                        <a href="estudante/{{$matricula->estudante_id}}" class="ui vertical yellow animated button" tabindex="0">
+                            <div class="hidden content">Detalhes</div>
+                            <div class="visible content">
+                                <i class="eye arrow outline icon"></i>
+                            </div>
                         </a>
-                          <a href="inscrever/{{$matricula->id}}" class="small ui button teal">
-                            <i class="eye icon"></i> Inscrever
+                        <a href="inscrever/{{$matricula->id}}" class="ui vertical teal animated button" tabindex="0">
+                            <div class="hidden content">Inscrever</div>
+                            <div class="visible content">
+                                <i class="right arrow outline icon"></i>
+                            </div>
                         </a>
                     </td>
                 </tr>

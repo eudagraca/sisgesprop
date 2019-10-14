@@ -20,7 +20,7 @@ class InscricaoTable extends Migration
             $table->integer('semestre');
             $table->integer('ano_escolaridade');
             $table->integer('preco');
-
+            $table->year("ano");
             $table->timestamps();
         });
     }

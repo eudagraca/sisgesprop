@@ -33,6 +33,40 @@ class CadeiraController extends Controller
         //
     }
 
+    public function atrasadas(Request $request)
+    {
+
+        $curso = $request->get('curso');
+        $ano = $request->get('ano');
+        $cadeirasID = $request->get('value');
+
+        $precoCadeiraAtrasada = Curso::find($curso);
+
+        $cadeiras = array();
+        $precoTotal = 0;
+        define("meses", 10);
+
+        if ($cadeirasID != null) {
+
+            foreach ($cadeirasID as $id) {
+
+                $cadeira = Cadeira::where('id', $id)->where('ano', '<', $ano)->select('creditos')->get();
+
+                foreach ($cadeira as $cad) {
+                    if ($cad != null) {
+                        array_push($cadeiras, $cad->creditos);
+                    }
+                }
+            }
+            foreach ($cadeiras as $credito) {
+
+                $precoTotal += $credito * meses;
+            };
+        }
+        return $precoTotal;
+
+    }
+
     public function edit($id)
     {
         return view('cadeiras.edit', array('cursos' => Curso::all()))->with('cadeira', Cadeira::find($id));
@@ -80,9 +114,9 @@ class CadeiraController extends Controller
         }
 
         $finalData = "";
-        $i =0;
+        $i = 0;
         foreach ($cadeirasArr as $umaCadeira) {
-            $finalData.= '<option value="'.$umaCadeira['id'].'">'.$umaCadeira['nome'].'</option>';
+            $finalData .= '<option value="' . $umaCadeira['id'] . '">' . $umaCadeira['nome'] . '</option>';
         }
         echo $finalData;
     }

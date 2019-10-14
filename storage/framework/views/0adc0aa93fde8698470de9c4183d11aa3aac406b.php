@@ -38,17 +38,22 @@
                     <td><?php echo e($curso->duracao); ?> Anos</td>
                     <td><?php echo e($curso->credito); ?></td>
                     <td>
-                        <a href="cursos/<?php echo e($curso->id); ?>/edit" class="ui left floated small yellow labeled icon button">
-                            <i class="edit outline icon"></i> Editar
+                        <a href="cursos/<?php echo e($curso->id); ?>/edit" class="ui vertical yellow animated button" tabindex="0">
+                            <div class="hidden content">Apagar</div>
+                            <div class="visible content">
+                                <i class="edit outline icon"></i>
+                            </div>
                         </a>
                     </td>
                     <td>
                         <form action="<?php echo e(route('cursos.destroy', $curso->id)); ?>" method="POST">
                             <?php echo method_field('DELETE'); ?>
                             <?php echo csrf_field(); ?>
-                            <button class="ui left labeled negative ui trash icon button">
-                                <i class="trash icon"></i>
-                                Apagar
+                            <button class="ui vertical negative animated button" tabindex="0">
+                                <div class="hidden content">Apagar</div>
+                                <div class="visible content">
+                                    <i class="trash icon"></i>
+                                </div>
                             </button>
                         </form>
                     </td>

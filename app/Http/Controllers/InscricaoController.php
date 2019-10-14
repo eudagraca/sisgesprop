@@ -14,6 +14,10 @@ use App\Inscricao;
 
 class InscricaoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -131,8 +135,6 @@ class InscricaoController extends Controller
             }
         }
 
-
         return view('inscricao.inscrever',['estudante' => $estudante,'curso' => Curso::find($matricula->curso_id),'matricula' => $matricula, 'preco'=> $precoDaInscricao ])->with('matriculaID', $id);
-
     }
 }

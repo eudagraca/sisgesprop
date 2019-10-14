@@ -32,8 +32,8 @@
                 @enderror
             </div>
             <div class="field">
-                <label for="nome">Grau académico</label>
-                <select name="grau" id="grau" class="ui fluid dropdown">
+                <label for="grau_id">Grau académico</label>
+                <select name="grau_id" id="grau_id" class="ui fluid dropdown">
                     <option value="" disabled selected>Seleccione o grau académico</option>
                     @foreach ($graus as $grau)
                     <option value="{{ $grau->id }}">{{ $grau->grau }}</option>

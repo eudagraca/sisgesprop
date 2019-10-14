@@ -45,46 +45,45 @@
                 <div class="three wide column">
                     <div class="ui vertical menu">
                         <div class="item">
-                            <div class="header">Products</div>
+                            <div class="header">Cadeiras</div>
                             <div class="menu">
-                                <a class="item">Enterprise</a>
-                                <a class="item">Consumer</a>
+                                <a href="/cadeiras/create" class="item">Adicionar</a>
+                                <a href="/cadeiras" class="item">Listar</a>
                             </div>
                         </div>
                         <div class="item">
-                            <div class="header">CMS Solutions</div>
+                            <div class="header">Cursos</div>
                             <div class="menu">
-                                <a class="item">Rails</a>
-                                <a class="item">Python</a>
-                                <a class="item">PHP</a>
+                                <a href="/cursos/create" class="item">Adicionar</a>
+                                <a href="/cursos" class="item">Listar</a>
                             </div>
                         </div>
                         <div class="item">
-                            <div class="header">Hosting</div>
+                            <div class="header">Estudantes</div>
                             <div class="menu">
-                                <a class="item">Compartilhado</a>
-                                <a class="item">Dedicado</a>
+                               <a href="/estudante/create" class="item">Adicionar</a>
+                               <a href="/estudante" class="item">Listar</a>
                             </div>
                         </div>
                         <div class="item">
-                            <div class="header">Support</div>
+                            <div class="header">Inscritos</div>
                             <div class="menu">
-                                <a class="item">E-mail Support</a>
-                                <a class="item">FAQs</a>
+                                <a href="/matricula" class="item">Adicionar</a>
+                                <a href="/inscricao" class="item">Listar</a>
                             </div>
                         </div>
                         <div class="item">
-                            <div class="header">Support</div>
+                            <div class="header">Matricular</div>
                             <div class="menu">
-                                <a class="item">E-mail Support</a>
-                                <a class="item">FAQs</a>
+                                <a class="item">Adicionar</a>
+                                <a class="item">Listar</a>
                             </div>
                         </div>
                         <div class="item">
-                            <div class="header">Support</div>
+                            <div class="header">Preços</div>
                             <div class="menu">
-                                <a class="item">E-mail Support</a>
-                                <a class="item">FAQs</a>
+                                <a class="item">Adicionar</a>
+                                <a class="item">Listar</a>
                             </div>
                         </div>
                     </div>

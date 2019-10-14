@@ -10,7 +10,7 @@
 
     <div class="ui four cards">
 
-        <div class="ui raised link card">
+        <div class="ui raised link card" >
             <div class="content">
                 <div class="dash image">
                     <img class="dash" height="5%" width="50%" src="/images/icons/books.svg">
@@ -128,7 +128,6 @@
     </div>
     <?php endif; ?>
 </div>
-
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/euclidio/Dev/apps/sisgesprop/resources/views/home.blade.php ENDPATH**/ ?>

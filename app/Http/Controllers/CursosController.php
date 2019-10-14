@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Curso;
 use App\Cadeira;
+use Illuminate\Http\Request;
 use App\Grau;
 
 use App\Http\Requests\CursoRequest;
@@ -57,5 +58,16 @@ class CursosController extends Controller
         Curso::destroy($id);
         $curso->cadeiras()->sync([]);
         return redirect('/cursos')->with('success', 'Curso ' . $curso->nome . ' removido com sucesso');
+    }
+
+    public function cursoGrau(Request $request)
+    {
+        $curso = Curso::find($request->get('value'));
+
+        echo '<option value="'.$curso->grau_id.'">
+                                        '.$curso->grau->grau.'</option>
+                                    ';
+
+
     }
 }

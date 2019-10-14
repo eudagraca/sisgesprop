@@ -6,6 +6,12 @@ use App\Curso;
 use PDF;
 class ReportController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function cursosPdf()
     {
         $cursos = Curso::all();

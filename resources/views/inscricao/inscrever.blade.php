@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form class="ui form" method="POST" action="{{ route('inscricao.store')}}">
+<form class="ui form" id="formInscrever" method="POST" action="{{ route('inscricao.store')}}">
     @csrf
     <h4 class="ui dividing header"> <a href="/estudante"><i class="green long arrow alternate left icon"></i></a> Lista
         de estudantes
@@ -24,7 +24,7 @@
 
 
             <div class="field">
-                <label for="codigo">Curso</label>
+                <label for="curso_id">Curso</label>
                 <input type="hidden" name="curso_id" id="curso_id" value="{{ $estudante->curso->id }}">
                 <input type="text" id="codigo" value="{{ $estudante->curso->nome }}" disabled>
                 @error('curso_id')
@@ -77,8 +77,7 @@
 
                 <label>Selecione as cadeiras</label>
 
-                <select id="cadeiras" name="cadeiras[]" class="form-control"
-                    multiple>
+                <select id="cadeiras" name="cadeiras[]" class="form-control" multiple>
 
                 </select>
 
@@ -93,8 +92,8 @@
 
         <div class="three fields">
             <div class="field">
-                <label for="valor_pagar">Valor a pagar</label>
-                <input type="hidden" name="preco" value="{{ $preco }}" id="valor_pagar">
+                <label for="valor_pagar">Valor da inscrição</label>
+                <input type="hidden" name="preco" value="{{ $preco }}" id="valor_total">
                 <input type="text" value="{{ $preco }}" id="valor_pagar" disabled>
                 @error('valor_pagar')
                 <p class="text-danger">
@@ -114,6 +113,40 @@
 
 <script>
     $(document).ready(function(){
+
+    $("#cadeiras").multiselect({
+        nonSelectedText: 'Seleccione as cadeiras',
+        onChange:function(option, checked){
+
+            var selected = $('#cadeiras').val();
+            var ano = $('#ano_escolaridade').val();
+            var curso = $('#curso_id').val();
+            var selected = $('#cadeiras').val();
+            var preco = $('#valor_pagar').val();
+
+
+            $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url: "{{ route('cadeiras.atrasadas') }} ",
+                method: "POST",
+                data: {value: selected, curso: curso, ano: ano},
+
+            success: function(result){
+                $('#valor_total').val(parseInt(result) + parseInt(preco));
+                $('#valor_pagar').val(parseInt(result) + parseInt(preco));
+                },
+            error: function(result){
+                    console.log(result)
+                }
+            });
+        }
+    });
+
     $('#semestre').change(function(){
         if($(this).val() != ''){
             var select =$(this).attr("id");

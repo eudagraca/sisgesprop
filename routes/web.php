@@ -31,3 +31,6 @@ Route::get('/live_search/action', 'LiveSearchController@action')->name('live_sea
 Route::get('/cursospdf', 'ReportController@cursosPdf')->name('report.cursosPdf');
 
 Route::post('/data', 'CadeiraController@fetch')->name('cadeiras.fetch');
+Route::post('/graus', 'CursosController@cursoGrau')->name('graus.fetch');
+Route::post('/atrasadas', 'CadeiraController@atrasadas')->name('cadeiras.atrasadas');
+

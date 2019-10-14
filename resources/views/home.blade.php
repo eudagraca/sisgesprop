@@ -12,7 +12,7 @@
 
     <div class="ui four cards">
 
-        <div class="ui raised link card">
+        <div class="ui raised link card" >
             <div class="content">
                 <div class="dash image">
                     <img class="dash" height="5%" width="50%" src="/images/icons/books.svg">
@@ -124,9 +124,6 @@
 
                 </p>
             </div>
-            {{-- <div class="description dash text-justify">
-                <p>Muitas pessoas também têm seus próprios barômetros para o que faz um cão bonito.</p>
-            </div> --}}
             <a href="{{ route('preco.create') }}" class="ui bottom attached button green text-justify"><i class="add icon"></i> Adicionar preço </a>
             <a href="{{ route('preco.index') }}" class="ui bottom attached button grey text-justify"><i class="eye icon"></i> Preços </a>
         </div>
@@ -134,6 +131,5 @@
     </div>
     @endguest
 </div>
-
 
 @endsection

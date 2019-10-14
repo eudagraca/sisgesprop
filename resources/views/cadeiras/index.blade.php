@@ -17,28 +17,33 @@
     </thead>
     <tbody>
         @foreach ($cadeiras as $cadeira)
-            <tr>
-                <td>{{$cadeira->codigo}}</td>
-                <td>{{$cadeira->nome}}</td>
-                <td>{{$cadeira->creditos}}</td>
-                <td>{{$cadeira->ano}}</td>
-                <td>{{$cadeira->semestre}}</td>
-                <td>
-                        <a href="cadeiras/{{$cadeira->id}}/edit" class="ui left floated small yellow labeled icon button">
-                            <i class="edit outline icon"></i> Editar
-                        </a>
-                    </td>
-                    <td>
-                        <form action="{{ route('cadeiras.destroy', $cadeira->id)}}" method="POST">
-                            @method('DELETE')
-                            @csrf
-                            <button class="ui left labeled negative ui trash icon button">
-                                <i class="trash icon"></i>
-                                Apagar
-                            </button>
-                        </form>
-                    </td>
-            </tr>
+        <tr>
+            <td>{{$cadeira->codigo}}</td>
+            <td>{{$cadeira->nome}}</td>
+            <td>{{$cadeira->creditos}}</td>
+            <td>{{$cadeira->ano}}</td>
+            <td>{{$cadeira->semestre}}</td>
+            <td>
+                <a href="cadeiras/{{$cadeira->id}}/edit" class="ui vertical yellow animated button" tabindex="0">
+                    <div class="hidden content">Editar</div>
+                    <div class="visible content">
+                        <i class="edit outline icon"></i>
+                    </div>
+                </a>
+            </td>
+            <td>
+                <form action="{{ route('cadeiras.destroy', $cadeira->id)}}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button class="ui vertical negative animated button" tabindex="0">
+                        <div class="hidden content">Apagar</div>
+                        <div class="visible content">
+                            <i class="trash icon"></i>
+                        </div>
+                    </button>
+                </form>
+            </td>
+        </tr>
         @endforeach
 
     </tbody>

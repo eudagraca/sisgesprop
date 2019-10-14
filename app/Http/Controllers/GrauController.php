@@ -81,4 +81,9 @@ class GrauController extends Controller
     {
         //
     }
+
+    public function fetch(Request $request)
+    {
+        # code...
+    }
 }
