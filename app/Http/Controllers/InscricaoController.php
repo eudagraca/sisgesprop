@@ -23,10 +23,9 @@ class InscricaoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $inscritos = Inscricao::OrderBy('created_at', 'asc')->paginate(10);
-
+        $inscritos = Inscricao::OrderBy('created_at', 'asc')->paginate(10);     
         return view('inscricao.index', ['cursos' => Curso::all()])->with('inscritos', $inscritos);
     }
 
@@ -136,5 +135,33 @@ class InscricaoController extends Controller
         }
 
         return view('inscricao.inscrever',['estudante' => $estudante,'curso' => Curso::find($matricula->curso_id),'matricula' => $matricula, 'preco'=> $precoDaInscricao ])->with('matriculaID', $id);
+    }
+
+    public function fetch(Request $request){
+
+        $id = $request->get('id');
+        //echo $inscritos;
+        $insc = Inscricao::where('curso_id','=', $id)->get();
+        
+        foreach ($insc as $item) {
+            $x = 0;
+            $cad = '';
+
+            foreach ($item->cadeiras as $cadeira) {
+                $cad .= $cadeira->nome;
+            }
+
+             $data = '<tr>
+                <th>' . $item->estudante->name .'</th>
+                <th>' .$item->semestre .'</th>
+                <th>'. $cad .'</th>
+                <th>'.$item->ano_escolaridade .'</th>
+                <th>'.$item->ano.'</th>
+                <th colspan="2" id="act"> Acao</th>
+            </tr>';
+        }
+
+        echo $data;
+
     }
 }

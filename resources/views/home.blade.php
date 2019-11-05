@@ -49,7 +49,8 @@
             <a href="{{ route('cursos.create') }}" class="ui bottom attached button yellow text-justify"><i class="add icon"></i> Adicionar novo </a>
             <a href="{{ route('cursos.index') }}" class="ui bottom attached button grey text-justify"><i class="eye icon"></i> Cursos </a>
         </div>
-
+        @can('admin_only', User::class)
+            
         <div class="ui raised link card">
             <div class="content">
                 <div class="dash image">
@@ -68,6 +69,7 @@
             <a href="{{ route('estudante.create') }}" class="ui bottom attached olive button text-justify"><i class="add icon"></i> Adicionar novo </a>
             <a href="{{ route('estudante.index') }}" href="" class="ui bottom attached grey button text-justify"><i class="eye icon"></i> Lista de estudantes </a>
         </div>
+        @endcan
         <div class="ui raised link card">
             <div class="content">
                 <div class="dash image">

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Grau;
 
 use App\Http\Requests\CursoRequest;
+use Yajra\Datatables\Facades\Datatables;
 
 class CursosController extends Controller
 {

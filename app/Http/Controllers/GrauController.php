@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Grau;
 
 class GrauController extends Controller
 {
@@ -13,7 +14,7 @@ class GrauController extends Controller
      */
     public function index()
     {
-        //
+        return view('graus.index')->with('graus', Grau::all());
     }
 
     /**
@@ -23,7 +24,7 @@ class GrauController extends Controller
      */
     public function create()
     {
-        //
+        return view('graus.create');
     }
 
     /**
@@ -34,7 +35,9 @@ class GrauController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Grau::create($request->all());
+        return redirect('/grau')->with('success', 'Cadastrou o grau de ' . $request->input('nome'));
+
     }
 
     /**
@@ -56,7 +59,7 @@ class GrauController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('graus.edit')->with('grau', Grau::find($id));
     }
 
     /**
@@ -68,7 +71,8 @@ class GrauController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Grau::where('id', $id)->update($request->except(['_method', '_token']));
+        return redirect('/grau')->with('succes', 'Grau atualizado');
     }
 
     /**
@@ -79,7 +83,8 @@ class GrauController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Grau::destroy($id);
+        return redirect('/grau')->with('success', 'Grau removido');
     }
 
     public function fetch(Request $request)

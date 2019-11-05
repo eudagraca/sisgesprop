@@ -40,6 +40,24 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="acl" class="col-md-4 col-form-label text-md-right">{{ __('Nível de acesso') }}</label>
+
+                            <div class="col-md-6">
+                                
+                                <select name="acl" id="acl" class="form-control @error('acl') is-invalid @enderror" name="acl" value="{{ old('acl') }}" required autocomplete="acl">
+                                    <option value="">Selecione uma opção</option>
+                                    <option value="0">Administrador</option>
+                                    <option value="1">Outro</option>
+                                </select>
+                                @error('acl')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

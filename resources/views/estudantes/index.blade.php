@@ -32,7 +32,9 @@
         serverSide: true,
         dom: '<"pull-left"f><"pull-bottom"l>tip',
         // dom: 'Bfrtip',
-
+         buttons: [
+        'copy', 'excel', 'pdf'
+    ],
         ajax: "{{ route('estudante.index') }}",
         columns: [
             {data: 'id'},
