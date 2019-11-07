@@ -30,6 +30,7 @@ Route::get('/naomatriculados', 'MatriculaController@naoMatriculados');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/live_search/action', 'LiveSearchController@action')->name('live_search.action');
 Route::get('/cursospdf', 'ReportController@cursosPdf')->name('report.cursosPdf');
+Route::get('estudantes', 'APIController@getAllStudents');
 
 Route::post('/data', 'CadeiraController@fetch')->name('cadeiras.fetch');
 Route::post('/graus', 'CursosController@cursoGrau')->name('graus.fetch');

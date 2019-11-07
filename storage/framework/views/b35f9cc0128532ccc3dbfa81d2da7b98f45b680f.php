@@ -120,7 +120,6 @@
 
                 </p>
             </div>
-            
             <a href="<?php echo e(route('preco.create')); ?>" class="ui bottom attached button green text-justify"><i class="add icon"></i> Adicionar preço </a>
             <a href="<?php echo e(route('preco.index')); ?>" class="ui bottom attached button grey text-justify"><i class="eye icon"></i> Preços </a>
         </div>
