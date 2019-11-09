@@ -163,3 +163,10 @@ img.dash {
 main.py-4 {
     margin: 0 !important;
 }
+
+.ui.raised.very.padded.text.container.segment.user-form {
+    margin-top: 5%;
+}
+/* .ui.small.teal.statistic.float-right {
+    margin-top: -10%;
+} */

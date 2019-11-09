@@ -39,7 +39,7 @@
                     <td><?php echo e($curso->credito); ?></td>
                     <td>
                         <a href="cursos/<?php echo e($curso->id); ?>/edit" class="ui vertical yellow animated button" tabindex="0">
-                            <div class="hidden content">Apagar</div>
+                            <div class="hidden content">Editar</div>
                             <div class="visible content">
                                 <i class="edit outline icon"></i>
                             </div>

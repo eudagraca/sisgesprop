@@ -42,8 +42,21 @@
         <div id="app">
             <?php echo $__env->make('includes.nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
             <div class="ui grid">
+               
+                   <?php if(auth()->guard()->guest()): ?>
+                     <?php else: ?> 
                 <div class="three wide column">
+                   
                     <div class="ui vertical menu">
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin_only', User::class)): ?>
+                        <div class="item">
+                            <div class="header">Graus</div>
+                            <div class="menu">
+                                <a href="/grau/create" class="item">Adicionar</a>
+                                <a href="/grau" class="item">Listar</a>
+                            </div>
+                        </div>
+                        <?php endif; ?>
                         <div class="item">
                             <div class="header">Cadeiras</div>
                             <div class="menu">
@@ -58,13 +71,16 @@
                                 <a href="/cursos" class="item">Listar</a>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="header">Estudantes</div>
-                            <div class="menu">
-                               <a href="/estudante/create" class="item">Adicionar</a>
-                               <a href="/estudante" class="item">Listar</a>
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('admin_only', User::class)): ?>
+                            <div class="item">
+                                <div class="header">Estudantes</div>
+                                <div class="menu">
+                                    <a href="/estudante/create" class="item">Adicionar</a>
+                                    <a href="/estudante" class="item">Listar</a>
+                                </div>
                             </div>
-                        </div>
+                        <?php endif; ?>
+                        
                         <div class="item">
                             <div class="header">Inscritos</div>
                             <div class="menu">
@@ -87,6 +103,7 @@
                             </div>
                         </div>
                     </div>
+                    <?php endif; ?>
                 </div>
                 <div class="twelve wide column">
                     <div class="ui container">
